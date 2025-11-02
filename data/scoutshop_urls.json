@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "last_updated": "2025-11-02",
+    "source": "scoutshop.com.au - Official Scout Shop Australia",
+    "notes": "URLs with 'estimated' status follow the observed naming pattern but have not been verified. URLs with 'documented' status were found in search results.",
+    "base_url": "https://scoutshop.com.au",
+    "url_pattern": "https://scoutshop.com.au/products/{badge-name-lowercase-hyphenated}"
+  },
+  "category_urls": {
+    "all_badges": "https://scoutshop.com.au/t/badges",
+    "cub_badges": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+    "special_interest_badges": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+    "peak_award_merchandise": "https://scoutshop.com.au/t/gifts-and-accessories/Peak-Award-Merchandise"
+  },
+  "resource_urls": {
+    "oas_progression_booklet": "https://scoutshop.com.au/products/oas-progression-booklet",
+    "badge_chart_pdf": "https://scoutshop.com.au/assets/badge_chart-dd3261395447ed6d32dc9a4489ec4535d608072a16d90c5495df0cb2a0ef671f.pdf"
+  },
+  "badge_product_urls": {
+    "grey-wolf-award": {
+      "main_badge": "https://scoutshop.com.au/products/grey-wolf-mounting-badge",
+      "metal_mounting": "https://scoutshop.com.au/products/grey-wolf-mounting-badge",
+      "belt_hat_badge": "https://scoutshop.com.au/products/cub-scout-grey-wolf-peak-award-metal-mounting-badge",
+      "woggle": "https://scoutshop.com.au/products/cub-scout-grey-wolf-peak-award-woggle",
+      "cap": "https://scoutshop.com.au/products/cub-scout-grey-wolf-peak-award-cap",
+      "lapel_pin": "https://scoutshop.com.au/products/cub-scout-grey-wolf-peak-award-metal-lapel-pin",
+      "status": "documented",
+      "price_range": "$3.95 - $19.95"
+    },
+    "milestone-1": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page",
+      "notes": "Specific product page may require Scout Member login"
+    },
+    "milestone-2": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page",
+      "notes": "Specific product page may require Scout Member login"
+    },
+    "milestone-3": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page",
+      "notes": "Specific product page may require Scout Member login"
+    },
+    "sia-adventure-sport": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "sia-arts-literature": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "sia-better-world": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "sia-environment": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "sia-growth-development": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "sia-stem-innovation": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "oas-bushcraft": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-bushwalking": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-pioneering": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-alpine": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-aquatic": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-boating": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-cycling": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-paddling": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "oas-vertical": {
+      "url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "status": "category_page"
+    },
+    "achievement-art-design": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-art-design",
+      "status": "estimated"
+    },
+    "achievement-entertainer": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-entertainer",
+      "status": "estimated"
+    },
+    "achievement-handcraft": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-handcraft",
+      "status": "estimated"
+    },
+    "achievement-handyworker": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-handyworker",
+      "status": "estimated"
+    },
+    "achievement-literature": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-literature",
+      "status": "estimated"
+    },
+    "achievement-masks-sculpture": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-masks-sculpture",
+      "status": "estimated"
+    },
+    "achievement-musician": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-musician",
+      "status": "documented"
+    },
+    "achievement-photography": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-photography",
+      "status": "estimated"
+    },
+    "achievement-animals-birds": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-animals-and-birds",
+      "status": "documented"
+    },
+    "achievement-bushcraft": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-bushcraft",
+      "status": "documented"
+    },
+    "achievement-codes-signals": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-codes-signals",
+      "status": "estimated"
+    },
+    "achievement-engineer": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-engineer",
+      "status": "estimated"
+    },
+    "achievement-flight": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-flight",
+      "status": "documented"
+    },
+    "achievement-gardener": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-gardener",
+      "status": "estimated"
+    },
+    "achievement-information-technology": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-information-technology",
+      "status": "estimated"
+    },
+    "achievement-naturalist": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-naturalist",
+      "status": "estimated"
+    },
+    "achievement-scientist": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-scientist",
+      "status": "estimated"
+    },
+    "achievement-space": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-space",
+      "status": "estimated"
+    },
+    "achievement-weather": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-weather",
+      "status": "estimated"
+    },
+    "achievement-athlete": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-athlete",
+      "status": "estimated"
+    },
+    "achievement-canoeing": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-canoeing",
+      "status": "estimated"
+    },
+    "achievement-collector": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-collector",
+      "status": "documented"
+    },
+    "achievement-cooking": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-cooking",
+      "status": "documented"
+    },
+    "achievement-cyclist": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-cyclist",
+      "status": "estimated"
+    },
+    "achievement-fishing": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-fishing",
+      "status": "documented"
+    },
+    "achievement-pets": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-pets",
+      "status": "documented"
+    },
+    "achievement-sailing": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-sailing",
+      "status": "estimated"
+    },
+    "achievement-sports": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-sports",
+      "status": "estimated"
+    },
+    "achievement-swimmer": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-swimmer",
+      "status": "documented"
+    },
+    "achievement-citizenship": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-citizenship",
+      "status": "estimated"
+    },
+    "achievement-first-aider": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-first-aider",
+      "status": "estimated"
+    },
+    "achievement-international-culture": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-international-culture",
+      "status": "estimated"
+    },
+    "achievement-traveller": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-traveller",
+      "status": "documented"
+    },
+    "achievement-world-friendship": {
+      "url": "https://scoutshop.com.au/products/achievement-badge-world-friendship",
+      "status": "estimated"
+    },
+    "participation-landcare": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-local-history": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-waterwise": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-their-service": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-language": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-faith-awareness": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-world-environment": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "participation-messengers-peace": {
+      "url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "status": "category_page"
+    },
+    "leadership-sixer": {
+      "url": "https://scoutshop.com.au/products/sixer-badge",
+      "status": "documented",
+      "notes": "Being phased out - will not be remade once current stock sells out"
+    },
+    "event-cub-centenary": {
+      "url": "https://scoutshop.com.au/products/world-cub-scouts-centenary-woven-blanket-badge",
+      "status": "documented"
+    },
+    "event-ses-badge": {
+      "url": "https://scoutshop.com.au/t/badges",
+      "status": "category_page",
+      "notes": "New for 2025"
+    }
+  },
+  "url_status_definitions": {
+    "documented": "URL found in search results and confirmed to exist",
+    "estimated": "URL follows the observed naming pattern but not verified",
+    "category_page": "Links to category page; specific product may require member access"
+  },
+  "purchasing_notes": {
+    "free_delivery": "Free standard delivery on orders over $10",
+    "member_access": "Some badges require Scout Member login to view and purchase",
+    "support": "All purchases support Scouting in your Branch",
+    "peak_award_restriction": "Peak Award merchandise only to be purchased for recipients of the award"
+  },
+  "url_verification_needed": [
+    "All 'estimated' status URLs should be verified by visiting the pages",
+    "Category pages may contain specific product links when logged in as Scout Member",
+    "Some badges may be out of stock or discontinued"
+  ]
+}

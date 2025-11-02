@@ -1,0 +1,578 @@
+[
+  {
+    "id": "grey-wolf-award",
+    "name": "Grey Wolf Award",
+    "category": "Peak Award",
+    "description": "The highest achievement badge a Cub Scout can earn. Requires completion of Milestone 3, six SIA projects, OAS Stage 3 in Core Disciplines plus eight total progressions, Adventurous Journey, Leadership Course, and personal reflection.",
+    "requirements_url": "https://scoutsvictoria.com.au/age-sections-adults/cub-scouts/cub-scout-program/peak-award-grey-wolf-award/",
+    "estimated_size_mm": 65,
+    "placement": "Top of left sleeve"
+  },
+  {
+    "id": "milestone-1",
+    "name": "Milestone 1",
+    "category": "Milestone",
+    "description": "First milestone badge obtained by completing a set number of participates, assists, and leads of activities, plus personal reflection. Typically completed by age 8.",
+    "requirements_url": "https://pr.scouts.com.au/tag/milestones/",
+    "estimated_size_mm": 45,
+    "placement": "Right front panel"
+  },
+  {
+    "id": "milestone-2",
+    "name": "Milestone 2",
+    "category": "Milestone",
+    "description": "Second milestone badge obtained by completing a set number of participates, assists, and leads of activities, plus personal reflection. Typically completed by age 9-10.",
+    "requirements_url": "https://pr.scouts.com.au/tag/milestones/",
+    "estimated_size_mm": 45,
+    "placement": "Right front panel"
+  },
+  {
+    "id": "milestone-3",
+    "name": "Milestone 3",
+    "category": "Milestone",
+    "description": "Third milestone badge obtained by completing a set number of participates, assists, and leads of activities, plus personal reflection. Required for Grey Wolf Award. Typically completed by age 11.",
+    "requirements_url": "https://pr.scouts.com.au/tag/milestones/",
+    "estimated_size_mm": 45,
+    "placement": "Right front panel"
+  },
+  {
+    "id": "sia-adventure-sport",
+    "name": "Adventure & Sport SIA",
+    "category": "Special Interest Area",
+    "description": "Special Interest Area badge for projects in Adventure & Sport. Minimum 4 hours per project.",
+    "requirements_url": "https://pr.scouts.com.au/tag/sia/",
+    "estimated_size_mm": 50,
+    "placement": "Middle of left sleeve"
+  },
+  {
+    "id": "sia-arts-literature",
+    "name": "Arts & Literature SIA",
+    "category": "Special Interest Area",
+    "description": "Special Interest Area badge for projects in Arts & Literature. Minimum 4 hours per project.",
+    "requirements_url": "https://pr.scouts.com.au/tag/sia/",
+    "estimated_size_mm": 50,
+    "placement": "Middle of left sleeve"
+  },
+  {
+    "id": "sia-better-world",
+    "name": "Creating a Better World SIA",
+    "category": "Special Interest Area",
+    "description": "Special Interest Area badge for projects in Creating a Better World. Minimum 4 hours per project.",
+    "requirements_url": "https://pr.scouts.com.au/tag/sia/",
+    "estimated_size_mm": 50,
+    "placement": "Middle of left sleeve"
+  },
+  {
+    "id": "sia-environment",
+    "name": "Environment SIA",
+    "category": "Special Interest Area",
+    "description": "Special Interest Area badge for projects in Environment. Minimum 4 hours per project.",
+    "requirements_url": "https://pr.scouts.com.au/tag/sia/",
+    "estimated_size_mm": 50,
+    "placement": "Middle of left sleeve"
+  },
+  {
+    "id": "sia-growth-development",
+    "name": "Growth & Development SIA",
+    "category": "Special Interest Area",
+    "description": "Special Interest Area badge for projects in Growth & Development. Minimum 4 hours per project.",
+    "requirements_url": "https://pr.scouts.com.au/tag/sia/",
+    "estimated_size_mm": 50,
+    "placement": "Middle of left sleeve"
+  },
+  {
+    "id": "sia-stem-innovation",
+    "name": "STEM & Innovation SIA",
+    "category": "Special Interest Area",
+    "description": "Special Interest Area badge for projects in STEM & Innovation. Minimum 4 hours per project.",
+    "requirements_url": "https://pr.scouts.com.au/tag/sia/",
+    "estimated_size_mm": 50,
+    "placement": "Middle of left sleeve"
+  },
+  {
+    "id": "oas-bushcraft",
+    "name": "OAS Bushcraft",
+    "category": "Outdoor Adventure Skills - Core",
+    "description": "Outdoor Adventure Skills badge for Bushcraft. Cubs must reach Stage 3. Core discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-bushwalking",
+    "name": "OAS Bushwalking",
+    "category": "Outdoor Adventure Skills - Core",
+    "description": "Outdoor Adventure Skills badge for Bushwalking (also called Camping). Cubs must reach Stage 3. Core discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-pioneering",
+    "name": "OAS Pioneering",
+    "category": "Outdoor Adventure Skills - Core",
+    "description": "Outdoor Adventure Skills badge for Pioneering. Cubs must reach Stage 3. Core discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-alpine",
+    "name": "OAS Alpine",
+    "category": "Outdoor Adventure Skills - Specialist",
+    "description": "Outdoor Adventure Skills badge for Alpine activities. Specialist discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-aquatic",
+    "name": "OAS Aquatic",
+    "category": "Outdoor Adventure Skills - Specialist",
+    "description": "Outdoor Adventure Skills badge for Aquatic activities. Specialist discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-boating",
+    "name": "OAS Boating",
+    "category": "Outdoor Adventure Skills - Specialist",
+    "description": "Outdoor Adventure Skills badge for Boating. Specialist discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-cycling",
+    "name": "OAS Cycling",
+    "category": "Outdoor Adventure Skills - Specialist",
+    "description": "Outdoor Adventure Skills badge for Cycling. Specialist discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-paddling",
+    "name": "OAS Paddling",
+    "category": "Outdoor Adventure Skills - Specialist",
+    "description": "Outdoor Adventure Skills badge for Paddling. Specialist discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "oas-vertical",
+    "name": "OAS Vertical",
+    "category": "Outdoor Adventure Skills - Specialist",
+    "description": "Outdoor Adventure Skills badge for Vertical activities (climbing). Specialist discipline.",
+    "requirements_url": "https://pr.scouts.com.au/tag/oas/",
+    "estimated_size_mm": 50,
+    "placement": "Bottom of left sleeve"
+  },
+  {
+    "id": "achievement-art-design",
+    "name": "Art & Design",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for art and design activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-entertainer",
+    "name": "Entertainer",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for entertainment and performance activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-handcraft",
+    "name": "Handcraft",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for handcraft activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-handyworker",
+    "name": "Handyworker",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for practical handywork. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-literature",
+    "name": "Literature",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for literature and reading activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-masks-sculpture",
+    "name": "Masks & Sculpture",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for making masks and sculptures. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-musician",
+    "name": "Musician",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for music activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-photography",
+    "name": "Photography",
+    "category": "Achievement - Arts & Literature",
+    "description": "Achievement badge for photography activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-animals-birds",
+    "name": "Animals & Birds",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for learning about animals and birds. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-bushcraft",
+    "name": "Bushcraft",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for bushcraft skills. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-codes-signals",
+    "name": "Codes & Signals",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for learning codes and signals. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-engineer",
+    "name": "Engineer",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for engineering activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-flight",
+    "name": "Flight",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for aviation and flight activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-gardener",
+    "name": "Gardener",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for gardening activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-information-technology",
+    "name": "Information Technology",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for IT and computer activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-naturalist",
+    "name": "Naturalist",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for nature study. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-scientist",
+    "name": "Scientist",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for science activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-space",
+    "name": "Space",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for space and astronomy activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-weather",
+    "name": "Weather",
+    "category": "Achievement - Nature, Science & Technology",
+    "description": "Achievement badge for weather study. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-athlete",
+    "name": "Athlete",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for athletics. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-canoeing",
+    "name": "Canoeing",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for canoeing activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-collector",
+    "name": "Collector",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for collecting hobbies. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-cooking",
+    "name": "Cooking",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for cooking activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-cyclist",
+    "name": "Cyclist",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for cycling activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-fishing",
+    "name": "Fishing",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for fishing activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-pets",
+    "name": "Pets",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for pet care. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-sailing",
+    "name": "Sailing",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for sailing activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-sports",
+    "name": "Sports",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for sports activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-swimmer",
+    "name": "Swimmer",
+    "category": "Achievement - Sports & Recreation",
+    "description": "Achievement badge for swimming activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-citizenship",
+    "name": "Citizenship",
+    "category": "Achievement - Our World",
+    "description": "Achievement badge for citizenship activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-first-aider",
+    "name": "First Aider",
+    "category": "Achievement - Our World",
+    "description": "Achievement badge for first aid skills. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-international-culture",
+    "name": "International Culture",
+    "category": "Achievement - Our World",
+    "description": "Achievement badge for learning about international cultures. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-traveller",
+    "name": "Traveller",
+    "category": "Achievement - Our World",
+    "description": "Achievement badge for travel experiences. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "achievement-world-friendship",
+    "name": "World Friendship",
+    "category": "Achievement - Our World",
+    "description": "Achievement badge for world friendship activities. Available in Level 1 and Level 2.",
+    "requirements_url": "http://yellowbook.weebly.com/achievement-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve below district badge"
+  },
+  {
+    "id": "participation-landcare",
+    "name": "Landcare",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for Landcare project participation. Minimum 8 hours over 6 months.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-local-history",
+    "name": "Local History",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for learning local and Australian history.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-waterwise",
+    "name": "Waterwise",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for water conservation activities. Complete six activities from various categories.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-their-service",
+    "name": "Their Service, Our Heritage",
+    "category": "Participation - Special Interest",
+    "description": "Annual award recognizing veterans. Participate in ANZAC or Remembrance Day activities.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-language",
+    "name": "Language Emblem",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for foreign language or sign language proficiency.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-faith-awareness",
+    "name": "Faith Awareness",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for faith awareness and religious understanding.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-world-environment",
+    "name": "World Environment",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for exploring environmental topics including clean water/air, habitats, and sustainability.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "participation-messengers-peace",
+    "name": "Messengers of Peace",
+    "category": "Participation - Special Interest",
+    "description": "Special Interest badge for community engagement and peace initiatives.",
+    "requirements_url": "http://yellowbook.weebly.com/special-interest-badges.html",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "leadership-sixer",
+    "name": "Sixer",
+    "category": "Leadership",
+    "description": "Leadership badge worn by Cub Scouts who are Six Leaders. Note: Will not be remade once current stock sells out.",
+    "requirements_url": "https://scoutshop.com.au/products/sixer-badge",
+    "estimated_size_mm": 40,
+    "placement": "Right sleeve"
+  },
+  {
+    "id": "event-cub-centenary",
+    "name": "World Cub Scouts Centenary",
+    "category": "Event Badge",
+    "description": "Commemorative badge celebrating the centenary of Cub Scouts worldwide.",
+    "requirements_url": "https://scoutshop.com.au/products/world-cub-scouts-centenary-woven-blanket-badge",
+    "estimated_size_mm": 75,
+    "placement": "Variable"
+  },
+  {
+    "id": "event-ses-badge",
+    "name": "SES Badge",
+    "category": "Event Badge",
+    "description": "New Scouts Australia SES badge for all sections (added 2025).",
+    "requirements_url": "https://pr.scouts.com.au/tag/badges/",
+    "estimated_size_mm": 40,
+    "placement": "Variable"
+  }
+]

@@ -1,0 +1,613 @@
+{
+  "metadata_version": "1.0",
+  "last_updated": "2025-11-02",
+  "collection_status": "documentation_complete",
+  "notes": "Badge image URLs documented. Actual image collection requires Scout Member access to scoutshop.com.au for full inventory. URLs are provided for manual collection.",
+  "images": [
+    {
+      "badge_id": "grey-wolf-award",
+      "image_source_url": "https://scoutshop.com.au/products/grey-wolf-mounting-badge",
+      "image_path": "data/badges/grey-wolf-award.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 85,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "milestone-1",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/milestone-1.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 45,
+      "status": "url_documented",
+      "collection_priority": "high",
+      "notes": "May require Scout Member login to access product page"
+    },
+    {
+      "badge_id": "milestone-2",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/milestone-2.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 45,
+      "status": "url_documented",
+      "collection_priority": "high",
+      "notes": "May require Scout Member login to access product page"
+    },
+    {
+      "badge_id": "milestone-3",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/milestone-3.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 45,
+      "status": "url_documented",
+      "collection_priority": "high",
+      "notes": "May require Scout Member login to access product page"
+    },
+    {
+      "badge_id": "sia-adventure-sport",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/sia-adventure-sport.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "sia-arts-literature",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/sia-arts-literature.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "sia-better-world",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/sia-better-world.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "sia-environment",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/sia-environment.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "sia-growth-development",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/sia-growth-development.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "sia-stem-innovation",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/sia-stem-innovation.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "high"
+    },
+    {
+      "badge_id": "oas-bushcraft",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-bushcraft.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "oas-bushwalking",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-bushwalking.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "oas-pioneering",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-pioneering.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "oas-alpine",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-alpine.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "oas-aquatic",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-aquatic.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "oas-boating",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-boating.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "oas-cycling",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-cycling.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "oas-paddling",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-paddling.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "oas-vertical",
+      "image_source_url": "https://scoutshop.com.au/t/badges/cubs-8-to-10",
+      "image_path": "data/badges/oas-vertical.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 50,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "achievement-art-design",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-art-design",
+      "image_path": "data/badges/achievement-art-design.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-entertainer",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-entertainer",
+      "image_path": "data/badges/achievement-entertainer.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-handcraft",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-handcraft",
+      "image_path": "data/badges/achievement-handcraft.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-handyworker",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-handyworker",
+      "image_path": "data/badges/achievement-handyworker.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-literature",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-literature",
+      "image_path": "data/badges/achievement-literature.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-masks-sculpture",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-masks-sculpture",
+      "image_path": "data/badges/achievement-masks-sculpture.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-musician",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-musician",
+      "image_path": "data/badges/achievement-musician.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-photography",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-photography",
+      "image_path": "data/badges/achievement-photography.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-animals-birds",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-animals-and-birds",
+      "image_path": "data/badges/achievement-animals-birds.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-bushcraft",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-bushcraft",
+      "image_path": "data/badges/achievement-bushcraft.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-codes-signals",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-codes-signals",
+      "image_path": "data/badges/achievement-codes-signals.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-engineer",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-engineer",
+      "image_path": "data/badges/achievement-engineer.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-flight",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-flight",
+      "image_path": "data/badges/achievement-flight.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-gardener",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-gardener",
+      "image_path": "data/badges/achievement-gardener.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-information-technology",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-information-technology",
+      "image_path": "data/badges/achievement-information-technology.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-naturalist",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-naturalist",
+      "image_path": "data/badges/achievement-naturalist.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-scientist",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-scientist",
+      "image_path": "data/badges/achievement-scientist.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-space",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-space",
+      "image_path": "data/badges/achievement-space.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-weather",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-weather",
+      "image_path": "data/badges/achievement-weather.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-athlete",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-athlete",
+      "image_path": "data/badges/achievement-athlete.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-canoeing",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-canoeing",
+      "image_path": "data/badges/achievement-canoeing.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-collector",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-collector",
+      "image_path": "data/badges/achievement-collector.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-cooking",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-cooking",
+      "image_path": "data/badges/achievement-cooking.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-cyclist",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-cyclist",
+      "image_path": "data/badges/achievement-cyclist.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-fishing",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-fishing",
+      "image_path": "data/badges/achievement-fishing.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-pets",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-pets",
+      "image_path": "data/badges/achievement-pets.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-sailing",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-sailing",
+      "image_path": "data/badges/achievement-sailing.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-sports",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-sports",
+      "image_path": "data/badges/achievement-sports.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-swimmer",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-swimmer",
+      "image_path": "data/badges/achievement-swimmer.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-citizenship",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-citizenship",
+      "image_path": "data/badges/achievement-citizenship.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-first-aider",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-first-aider",
+      "image_path": "data/badges/achievement-first-aider.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-international-culture",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-international-culture",
+      "image_path": "data/badges/achievement-international-culture.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-traveller",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-traveller",
+      "image_path": "data/badges/achievement-traveller.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "achievement-world-friendship",
+      "image_source_url": "https://scoutshop.com.au/products/achievement-badge-world-friendship",
+      "image_path": "data/badges/achievement-world-friendship.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_estimated",
+      "collection_priority": "medium"
+    },
+    {
+      "badge_id": "participation-landcare",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-landcare.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-local-history",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-local-history.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-waterwise",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-waterwise.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-their-service",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-their-service.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-language",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-language.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-faith-awareness",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-faith-awareness.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-world-environment",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-world-environment.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "participation-messengers-peace",
+      "image_source_url": "https://scoutshop.com.au/t/badges/special-interest-badges-multisectional",
+      "image_path": "data/badges/participation-messengers-peace.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "leadership-sixer",
+      "image_source_url": "https://scoutshop.com.au/products/sixer-badge",
+      "image_path": "data/badges/leadership-sixer.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "low",
+      "notes": "Being phased out - will not be remade once current stock sells out"
+    },
+    {
+      "badge_id": "event-cub-centenary",
+      "image_source_url": "https://scoutshop.com.au/products/world-cub-scouts-centenary-woven-blanket-badge",
+      "image_path": "data/badges/event-cub-centenary.png",
+      "estimated_dimensions": {"width": 500, "height": 500},
+      "physical_size_mm": 75,
+      "status": "url_documented",
+      "collection_priority": "low"
+    },
+    {
+      "badge_id": "event-ses-badge",
+      "image_source_url": "https://scoutshop.com.au/t/badges",
+      "image_path": "data/badges/event-ses-badge.png",
+      "estimated_dimensions": {"width": 400, "height": 400},
+      "physical_size_mm": 40,
+      "status": "url_documented",
+      "collection_priority": "medium",
+      "notes": "New for 2025"
+    }
+  ],
+  "collection_instructions": {
+    "authentication": "Some badges require Scout Member login at scoutshop.com.au",
+    "image_format": "PNG with transparent background preferred, JPG acceptable",
+    "minimum_resolution": "300x300 pixels",
+    "recommended_resolution": "500x500 pixels",
+    "naming_convention": "Use badge_id from badges_list.json as filename",
+    "storage_location": "data/badges/",
+    "metadata_to_capture": [
+      "Actual dimensions (width x height)",
+      "File size",
+      "SHA256 hash",
+      "Download date",
+      "Image format"
+    ]
+  },
+  "statistics": {
+    "total_badges": 70,
+    "urls_documented": 15,
+    "urls_estimated": 32,
+    "urls_requiring_member_access": 23,
+    "collection_priority_high": 13,
+    "collection_priority_medium": 46,
+    "collection_priority_low": 11
+  }
+}
