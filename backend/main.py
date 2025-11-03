@@ -103,13 +103,9 @@ async def api_health_check() -> dict[str, str]:
 
 
 # API router setup
-# TODO: Add API routers here as they are implemented
-# Example:
-# from backend.api import badges, inventory, scans, upload
-# app.include_router(badges.router, prefix="/api/badges", tags=["Badges"])
-# app.include_router(inventory.router, prefix="/api/inventory", tags=["Inventory"])
-# app.include_router(scans.router, prefix="/api/scans", tags=["Scans"])
-# app.include_router(upload.router, prefix="/api/upload", tags=["Upload"])
+from backend.api import upload_router
+
+app.include_router(upload_router, prefix="/api", tags=["Upload"])
 
 
 # Error handlers
