@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scout-purple: #4b0082;
+  --scout-gold: #ffd700;
+  --scout-green: #006400;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-scout-purple text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+  }
+
+  .badge-status-low {
+    @apply bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+
+  .badge-status-ok {
+    @apply bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+
+  .badge-status-good {
+    @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-scout-purple {
+    color: var(--scout-purple);
+  }
+
+  .text-scout-gold {
+    color: var(--scout-gold);
+  }
+
+  .text-scout-green {
+    color: var(--scout-green);
+  }
+
+  .bg-scout-purple {
+    background-color: var(--scout-purple);
+  }
+
+  .bg-scout-gold {
+    background-color: var(--scout-gold);
+  }
+
+  .bg-scout-green {
+    background-color: var(--scout-green);
+  }
+
+  .border-scout-purple {
+    border-color: var(--scout-purple);
+  }
+
+  .border-scout-gold {
+    border-color: var(--scout-gold);
+  }
+
+  .border-scout-green {
+    border-color: var(--scout-green);
+  }
+}

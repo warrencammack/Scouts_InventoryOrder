@@ -176,10 +176,11 @@ This document breaks down the development into discrete, parallelizable actions 
 ---
 
 ### ACTION-103: Test Ollama Badge Recognition
-**Status**: ⬜
+**Status**: ✅
 **Parallel**: 🟢
 **Estimated Time**: 2 hours
 **Dependencies**: ACTION-000, ACTION-101 (needs test images)
+**Completed**: 2025-11-02
 
 **Tasks:**
 1. Create test script: `tests/test_ollama_vision.py`
@@ -300,7 +301,7 @@ This document breaks down the development into discrete, parallelizable actions 
 ---
 
 ### ACTION-203: Implement Image Upload API
-**Status**: ⬜
+**Status**: 🔄
 **Parallel**: 🟢
 **Estimated Time**: 2 hours
 **Dependencies**: ACTION-200, ACTION-201
@@ -475,10 +476,11 @@ This document breaks down the development into discrete, parallelizable actions 
 ## Phase 3: Frontend Development (Many parallel tasks)
 
 ### ACTION-300: Setup Frontend Project
-**Status**: ⬜
+**Status**: ✅
 **Parallel**: 🟢
 **Estimated Time**: 30 minutes
 **Dependencies**: ACTION-001
+**Completed**: 2025-11-02
 
 **Tasks:**
 1. Create Next.js app:
@@ -508,7 +510,7 @@ This document breaks down the development into discrete, parallelizable actions 
 ---
 
 ### ACTION-301: Create Upload Component
-**Status**: ⬜
+**Status**: 🔄
 **Parallel**: 🟢
 **Estimated Time**: 3 hours
 **Dependencies**: ACTION-300
