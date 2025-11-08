@@ -103,9 +103,10 @@ async def api_health_check() -> dict[str, str]:
 
 
 # API router setup
-from backend.api import upload_router
+from backend.api import processing_router, upload_router
 
 app.include_router(upload_router, prefix="/api", tags=["Upload"])
+app.include_router(processing_router, prefix="/api", tags=["Processing"])
 
 
 # Error handlers

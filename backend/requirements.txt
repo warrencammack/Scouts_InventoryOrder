@@ -6,3 +6,4 @@ ollama==0.1.0
 sqlalchemy==2.0.23
 pydantic==2.5.0
 python-dotenv==1.0.0
+rapidfuzz==3.5.2
