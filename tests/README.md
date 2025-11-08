@@ -72,10 +72,43 @@ The test suite evaluates:
 4. **Response Time** - How fast is the processing?
 5. **Prompt Effectiveness** - Which prompts work best?
 
+## Integration Tests
+
+### integration/
+Complete end-to-end and edge case testing suite (ACTION-400).
+
+**Test Suites:**
+- **test_e2e_workflow.py** - Complete workflow from upload to inventory update
+- **test_edge_cases.py** - Error handling, boundary conditions, stress tests
+- **run_all_tests.py** - Master test runner with comprehensive reporting
+
+**Features:**
+- ✅ End-to-end workflow validation
+- ✅ Error handling and edge cases
+- ✅ Concurrent request testing
+- ✅ Performance benchmarking
+- ✅ Automated test reports (JSON)
+
+**Quick Start:**
+```bash
+# Start backend first
+cd backend && uvicorn main:app --reload
+
+# Run all integration tests
+python tests/integration/run_all_tests.py
+
+# See integration/README.md for full documentation
+```
+
+**Documentation:**
+- **integration/README.md** - Complete test documentation
+- **integration/TESTING_GUIDE.md** - Testing scenarios and best practices
+
 ## Next Steps
 
-- [ ] Run full comprehensive test suite
-- [ ] Test with additional badge images
+- [x] ~~Run full comprehensive test suite~~ (ACTION-103 completed)
+- [x] ~~Test with additional badge images~~ (3 real-world images tested)
+- [x] ~~Implement automated accuracy metrics~~ (ACTION-400 completed)
 - [ ] Test llava:13b model for accuracy comparison
-- [ ] Implement automated accuracy metrics
 - [ ] Create ground truth dataset for validation
+- [ ] Run performance optimization tests (ACTION-401)

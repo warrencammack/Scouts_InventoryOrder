@@ -1,0 +1,5 @@
+# Integration Test Requirements
+# Install with: pip install -r tests/integration/requirements.txt
+
+requests>=2.31.0
+pillow>=10.1.0
