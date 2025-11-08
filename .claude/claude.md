@@ -128,3 +128,194 @@ When marking an action as in progress:
 - Use the TodoWrite tool to track your work within each session
 - Ensure the ACTION_PLAN.md reflects the current state of the project at all times
 - When starting a new session, first review ACTION_PLAN.md to understand what's been completed
+- **ALWAYS commit to git after completing each action or task** (see Git Commit Protocol below)
+
+---
+
+## Git Commit Protocol
+
+### Automatic Commits After Task Completion
+
+**IMPORTANT**: After completing ANY action, task, or feature, you MUST create a git commit to snapshot the work.
+
+### Commit Workflow
+
+**1. Before Starting Major Work (Optional Checkpoint):**
+```bash
+git add . && git commit -m "checkpoint: Before [task description]"
+```
+
+**2. After Completing Any Action (REQUIRED):**
+```bash
+git add -A && git commit -m "feat: Complete [ACTION-XXX] - [Brief description]
+
+[Detailed description of what was implemented]
+
+✅ [Key accomplishments]
+✅ [Key accomplishments]
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+**3. If User Wants to Rollback:**
+```bash
+# Rollback to previous commit
+git reset --hard HEAD~1
+
+# View commit history to choose rollback point
+git log --oneline -10
+git reset --hard <commit-hash>
+```
+
+### Commit Message Format
+
+Use conventional commit format with emoji indicators:
+
+**Feature Completion:**
+```
+feat: Complete ACTION-XXX - [Feature Name]
+
+[Detailed multi-line description]
+
+✅ Accomplishment 1
+✅ Accomplishment 2
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+**Bug Fix:**
+```
+fix: Resolve [issue description]
+
+[Details]
+```
+
+**Documentation:**
+```
+docs: Update [documentation name]
+
+[Details]
+```
+
+**Checkpoint (before major changes):**
+```
+checkpoint: Before [description of upcoming work]
+```
+
+### When to Commit
+
+✅ **ALWAYS commit after:**
+- Completing any ACTION from ACTION_PLAN.md
+- Creating new features or components
+- Fixing bugs
+- Updating documentation
+- Making configuration changes
+- Completing user-requested tasks
+
+✅ **Consider committing before:**
+- Starting major refactoring
+- Making breaking changes
+- Implementing complex features (checkpoint commit)
+
+❌ **Do NOT commit:**
+- Incomplete/broken code (unless explicitly creating a checkpoint)
+- Without updating ACTION_PLAN.md first
+- Without testing basic functionality
+
+### Commit Statistics to Include
+
+When committing, include relevant stats in the message:
+- Number of files changed
+- Lines of code added
+- Actions completed (e.g., "Progress: 17 of 70+ actions")
+- Key features implemented
+
+### Example Commits
+
+**Single Action:**
+```bash
+git add -A && git commit -m "feat: Complete ACTION-204 - Ollama Badge Recognition Service
+
+Implemented AI-powered badge detection service using Ollama.
+
+✅ Badge recognition with context-rich prompts
+✅ Response parsing and badge matching
+✅ Confidence scoring system
+✅ Retry logic for failed detections
+✅ Batch processing support
+
+Files: 2 files, 450 lines of code
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+**Multiple Actions:**
+```bash
+git add -A && git commit -m "feat: Complete ACTION-301-306 - All Frontend Components
+
+Implemented all 6 core React components for the UI.
+
+Frontend Components:
+✅ ImageUpload component (320 lines)
+✅ ProcessingStatus component (301 lines)
+✅ ResultsReview component (343 lines)
+✅ InventoryDashboard component (529 lines)
+✅ InventoryCharts component (400 lines)
+✅ ShoppingList component (413 lines)
+
+Total: 2,306 lines of production-ready code
+Progress: 17 of 70+ actions completed
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+### Recovery Commands
+
+If user is unhappy with changes:
+
+```bash
+# View recent commits
+git log --oneline -10
+
+# Rollback last commit (keep changes in working directory)
+git reset --soft HEAD~1
+
+# Rollback last commit (discard all changes)
+git reset --hard HEAD~1
+
+# Rollback to specific commit
+git reset --hard <commit-hash>
+
+# Create a new branch to preserve current work before rollback
+git branch backup-branch
+git reset --hard HEAD~1
+```
+
+### Best Practices
+
+1. **Commit Early, Commit Often**: Each completed ACTION should get its own commit
+2. **Descriptive Messages**: Include what was done and why
+3. **Include Stats**: Show progress and scope of changes
+4. **Test Before Commit**: Ensure code at least runs/compiles
+5. **Update ACTION_PLAN.md First**: Always update status before committing
+6. **Use Conventional Commits**: Prefix with feat:/fix:/docs:/etc.
+7. **Add Attribution**: Include Claude Code attribution in footer
+
+### Automation Reminder
+
+**After completing ANY action, your workflow should be:**
+
+1. ✅ Update ACTION_PLAN.md status to ✅
+2. ✅ Update TodoWrite to mark task completed
+3. ✅ **Create git commit with descriptive message**
+4. ✅ Provide summary to user
+
+This ensures every milestone is captured and can be rolled back if needed.
