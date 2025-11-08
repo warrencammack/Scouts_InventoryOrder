@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-11-08T23:04:40.752027",
+  "duration_seconds": 80.53,
+  "test_suites": {
+    "end_to_end": {
+      "passed": false,
+      "description": "Complete workflow from upload to inventory update"
+    },
+    "edge_cases": {
+      "passed": true,
+      "description": "Error handling and boundary conditions"
+    }
+  },
+  "overall_result": "FAIL",
+  "environment": {
+    "backend_url": "http://localhost:8000",
+    "ollama_model": "llava:7b"
+  }
+}

@@ -88,7 +88,7 @@ class IntegrationTestClient:
                 timeout=self.timeout
             )
 
-            if response.status_code == 200:
+            if response.status_code in [200, 201]:  # Accept both 200 OK and 201 Created
                 data = response.json()
                 return data.get('scan_id')
             else:
@@ -110,7 +110,7 @@ class IntegrationTestClient:
                 f"{self.base_url}/api/process/{scan_id}",
                 timeout=self.timeout
             )
-            return response.status_code == 200
+            return response.status_code in [200, 202]  # Accept 200 OK and 202 Accepted
         except Exception as e:
             print(f"❌ Processing start failed: {e}")
             return False
