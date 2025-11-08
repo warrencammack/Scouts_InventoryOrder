@@ -1,6 +1,19 @@
 'use client'
 
+import { useState } from 'react'
+import InventoryDashboard from '@/components/InventoryDashboard'
+import InventoryCharts from '@/components/InventoryCharts'
+import { BarChart3, Table } from 'lucide-react'
+
 export default function InventoryPage() {
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'charts'>('dashboard')
+  const [refreshTrigger, setRefreshTrigger] = useState(0)
+
+  const handleAdjust = () => {
+    // Trigger refresh when inventory is adjusted
+    setRefreshTrigger((prev) => prev + 1)
+  }
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
@@ -10,59 +23,40 @@ export default function InventoryPage() {
         </p>
       </div>
 
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded mb-8">
-        <h3 className="font-semibold text-blue-900 mb-2">Coming Soon!</h3>
-        <p className="text-blue-800">
-          The inventory dashboard will be implemented in ACTION-304. It will display:
-        </p>
-        <ul className="list-disc list-inside text-blue-800 mt-2 space-y-1">
-          <li>All badge inventory with images and current quantities</li>
-          <li>Filtering by category (Milestone, Special Interest, etc.)</li>
-          <li>Search functionality</li>
-          <li>Stock status indicators (Low, Adequate, Well Stocked)</li>
-          <li>Manual inventory adjustments</li>
-        </ul>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="card">
-          <h3 className="text-lg font-semibold mb-2">Total Badges</h3>
-          <p className="text-4xl font-bold text-scout-purple">0</p>
-          <p className="text-sm text-gray-500 mt-1">Different badge types</p>
-        </div>
-
-        <div className="card">
-          <h3 className="text-lg font-semibold mb-2">Total Quantity</h3>
-          <p className="text-4xl font-bold text-scout-green">0</p>
-          <p className="text-sm text-gray-500 mt-1">Badges in stock</p>
-        </div>
-
-        <div className="card">
-          <h3 className="text-lg font-semibold mb-2">Low Stock Items</h3>
-          <p className="text-4xl font-bold text-red-600">0</p>
-          <p className="text-sm text-gray-500 mt-1">Need reordering</p>
+      {/* Tabs */}
+      <div className="mb-6 border-b border-gray-200">
+        <div className="flex gap-4">
+          <button
+            onClick={() => setActiveTab('dashboard')}
+            className={`flex items-center gap-2 px-4 py-3 border-b-2 font-medium transition-colors ${
+              activeTab === 'dashboard'
+                ? 'border-scout-purple text-scout-purple'
+                : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+            }`}
+          >
+            <Table className="w-5 h-5" />
+            Dashboard
+          </button>
+          <button
+            onClick={() => setActiveTab('charts')}
+            className={`flex items-center gap-2 px-4 py-3 border-b-2 font-medium transition-colors ${
+              activeTab === 'charts'
+                ? 'border-scout-purple text-scout-purple'
+                : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+            }`}
+          >
+            <BarChart3 className="w-5 h-5" />
+            Charts & Analytics
+          </button>
         </div>
       </div>
 
-      <div className="card">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold">Inventory List</h2>
-          <div className="flex space-x-2">
-            <button className="btn-secondary">
-              Filter
-            </button>
-            <button className="btn-secondary">
-              Export
-            </button>
-          </div>
-        </div>
-
-        <div className="text-center py-12 text-gray-500">
-          <div className="text-6xl mb-4">📦</div>
-          <p className="text-lg">No inventory data yet</p>
-          <p className="text-sm mt-2">Upload and process badge images to populate inventory</p>
-        </div>
-      </div>
+      {/* Tab Content */}
+      {activeTab === 'dashboard' ? (
+        <InventoryDashboard onAdjust={handleAdjust} />
+      ) : (
+        <InventoryCharts refreshTrigger={refreshTrigger} />
+      )}
     </div>
   )
 }

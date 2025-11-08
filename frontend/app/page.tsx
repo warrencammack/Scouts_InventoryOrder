@@ -1,10 +1,55 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import ImageUpload from '@/components/ImageUpload'
+import { uploadImages, processScan } from '@/lib/api'
 
 export default function Home() {
-  const [dragActive, setDragActive] = useState(false)
+  const router = useRouter()
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const [uploading, setUploading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleImagesSelected = (files: File[]) => {
+    setSelectedFiles(files)
+    setError(null)
+  }
+
+  const handleUpload = async () => {
+    if (selectedFiles.length === 0) {
+      setError('Please select at least one image to upload')
+      return
+    }
+
+    setUploading(true)
+    setError(null)
+
+    try {
+      // Upload images
+      const uploadResponse = await uploadImages(selectedFiles)
+
+      if (!uploadResponse.success || !uploadResponse.data) {
+        throw new Error(uploadResponse.error || 'Failed to upload images')
+      }
+
+      const scanId = uploadResponse.data.scan_id
+
+      // Start processing
+      const processResponse = await processScan(scanId)
+
+      if (!processResponse.success) {
+        throw new Error(processResponse.error || 'Failed to start processing')
+      }
+
+      // Navigate to processing page
+      router.push(`/scan/${scanId}`)
+    } catch (err: any) {
+      setError(err.message || 'An error occurred during upload')
+      setUploading(false)
+    }
+  }
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -54,46 +99,29 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-scout-purple to-purple-700 rounded-lg shadow-xl p-8 text-white text-center">
-        <h2 className="text-2xl font-bold mb-4">Ready to get started?</h2>
-        <p className="mb-6">Upload your first batch of badge images</p>
+      <div className="bg-gradient-to-r from-scout-purple to-purple-700 rounded-lg shadow-xl p-8 text-white">
+        <h2 className="text-2xl font-bold mb-4 text-center">Ready to get started?</h2>
+        <p className="mb-6 text-center">Upload your first batch of badge images</p>
 
-        <div
-          className={`border-4 border-dashed rounded-lg p-12 mb-6 transition-all cursor-pointer ${
-            dragActive
-              ? 'border-scout-gold bg-white/20'
-              : 'border-white/50 hover:border-white hover:bg-white/10'
-          }`}
-          onDragOver={(e) => {
-            e.preventDefault()
-            setDragActive(true)
-          }}
-          onDragLeave={() => setDragActive(false)}
-          onDrop={(e) => {
-            e.preventDefault()
-            setDragActive(false)
-            // File upload logic will be implemented in ACTION-301
-            alert('Upload functionality coming soon! (ACTION-301)')
-          }}
-          onClick={() => alert('Upload functionality coming soon! (ACTION-301)')}
-        >
-          <div className="text-6xl mb-4">📤</div>
-          <p className="text-xl font-semibold mb-2">
-            Drop images here or click to upload
-          </p>
-          <p className="text-sm text-white/80">
-            Supports JPG, PNG, and HEIC formats
-          </p>
-        </div>
+        <ImageUpload onImagesSelected={handleImagesSelected} />
 
-        <div className="flex justify-center space-x-4">
-          <button className="bg-white text-scout-purple px-6 py-3 rounded-lg font-semibold hover:bg-scout-gold hover:text-white transition-colors shadow-lg">
-            Choose Files
-          </button>
-          <button className="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-scout-purple transition-colors">
-            Use Camera
-          </button>
-        </div>
+        {error && (
+          <div className="mt-4 bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded">
+            {error}
+          </div>
+        )}
+
+        {selectedFiles.length > 0 && (
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={handleUpload}
+              disabled={uploading}
+              className="bg-scout-gold text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {uploading ? 'Uploading...' : `Upload ${selectedFiles.length} Image${selectedFiles.length > 1 ? 's' : ''} & Start Processing`}
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="mt-12 bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
