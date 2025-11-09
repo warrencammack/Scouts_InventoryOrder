@@ -91,7 +91,7 @@ export async function uploadImages(files: File[]): Promise<ApiResponse<UploadRes
  * @param scanId - The scan ID to process
  * @returns Processing result with detected badges
  */
-export async function processScan(scanId: string): Promise<ApiResponse<ProcessingResult>> {
+export async function processScan(scanId: number | string): Promise<ApiResponse<ProcessingResult>> {
   try {
     const response = await apiClient.post<ProcessingResult>(`/api/process/${scanId}`)
 
@@ -105,15 +105,35 @@ export async function processScan(scanId: string): Promise<ApiResponse<Processin
 }
 
 /**
- * Get processing progress for a scan
+ * Get processing status for a scan
  * @param scanId - The scan ID to check
- * @returns Current processing progress
+ * @returns Current processing status
  */
-export async function getProcessingProgress(
-  scanId: string
+export async function getProcessingStatus(
+  scanId: number | string
 ): Promise<ApiResponse<ProcessingProgress>> {
   try {
-    const response = await apiClient.get<ProcessingProgress>(`/api/process/${scanId}/progress`)
+    const response = await apiClient.get<ProcessingProgress>(`/api/process/${scanId}/status`)
+
+    return {
+      success: true,
+      data: response.data,
+    }
+  } catch (error) {
+    return handleApiError(error as AxiosError)
+  }
+}
+
+/**
+ * Get processing results for a completed scan
+ * @param scanId - The scan ID to get results for
+ * @returns Processing results with detections
+ */
+export async function getProcessingResults(
+  scanId: number | string
+): Promise<ApiResponse<ProcessingResult>> {
+  try {
+    const response = await apiClient.get<ProcessingResult>(`/api/process/${scanId}/results`)
 
     return {
       success: true,
@@ -182,11 +202,12 @@ export async function getInventory(filters?: {
     if (filters?.low_stock_only) params.append('low_stock_only', 'true')
     if (filters?.search) params.append('search', filters.search)
 
-    const response = await apiClient.get<Inventory[]>(`/api/inventory?${params.toString()}`)
+    const response = await apiClient.get<{ items: Inventory[], total_items: number, low_stock_count: number }>(`/api/inventory?${params.toString()}`)
 
+    // Backend returns {items: [...], total_items: N, low_stock_count: N}, extract items array
     return {
       success: true,
-      data: response.data,
+      data: response.data.items || [],
     }
   } catch (error) {
     return handleApiError(error as AxiosError)
