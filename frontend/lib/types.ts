@@ -30,24 +30,27 @@ export interface Scan {
   status: 'pending' | 'processing' | 'completed' | 'failed'
   total_images: number
   processed_images: number
-  total_badges_detected: number
+  total_badges_detected?: number
   created_at: string
   updated_at?: string
   completed_at?: string
   error_message?: string
+  images?: ScanImage[]
 }
 
 export interface ScanImage {
   id: string
-  scan_id: string
-  file_path: string
-  file_name: string
-  file_size: number
+  scan_id?: string
+  file_path?: string
+  image_path?: string  // API uses image_path instead of file_path
+  file_name?: string
+  file_size?: number
   status: 'pending' | 'processing' | 'completed' | 'failed'
-  badges_detected: number
+  badges_detected?: number
   processed_at?: string
+  uploaded_at?: string
   error_message?: string
-  created_at: string
+  created_at?: string
 }
 
 export interface BadgeDetection {
@@ -125,16 +128,19 @@ export interface ProcessingResult {
 }
 
 export interface InventoryStats {
-  total_badges: number
+  total_badge_types: number
   total_quantity: number
   low_stock_count: number
-  categories: {
+  out_of_stock_count: number
+  by_category: {
     [category: string]: {
-      count: number
-      quantity: number
+      badge_types: number
+      total_quantity: number
+      low_stock_count: number
+      out_of_stock_count: number
     }
   }
-  recent_updates: InventoryAdjustment[]
+  last_updated: string | null
 }
 
 export interface ExportOptions {

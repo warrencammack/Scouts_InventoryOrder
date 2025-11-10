@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import ProcessingStatus from '@/components/ProcessingStatus'
-import { getScan, getProcessingProgress } from '@/lib/api'
+import { getScan } from '@/lib/api'
 import type { Scan } from '@/lib/types'
 
 export default function ScanPage() {

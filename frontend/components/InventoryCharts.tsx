@@ -68,23 +68,15 @@ const InventoryCharts: React.FC<InventoryChartsProps> = ({ refreshTrigger = 0 })
 
   // Prepare data for category pie chart
   const categoryData = stats
-    ? Object.entries(stats.categories).map(([name, data]) => ({
+    ? Object.entries(stats.by_category).map(([name, data]) => ({
         name,
-        value: data.quantity,
-        count: data.count,
+        value: data.total_quantity,
+        count: data.badge_types,
       }))
     : []
 
-  // Prepare data for top badges bar chart
-  const topBadgesData = stats?.recent_updates
-    ? stats.recent_updates
-        .slice(0, 10)
-        .map((update) => ({
-          name: update.badge?.name || 'Unknown',
-          quantity: update.new_quantity,
-          badge_id: update.badge_id,
-        }))
-    : []
+  // No recent updates in the current API - skip for now
+  const topBadgesData: any[] = []
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -158,7 +150,7 @@ const InventoryCharts: React.FC<InventoryChartsProps> = ({ refreshTrigger = 0 })
             <TrendingUp className="w-5 h-5 opacity-60" />
           </div>
           <p className="text-sm opacity-90 mb-1">Total Badge Types</p>
-          <p className="text-4xl font-bold">{stats.total_badges}</p>
+          <p className="text-4xl font-bold">{stats.total_badge_types}</p>
         </div>
 
         {/* Total Quantity */}
@@ -190,8 +182,8 @@ const InventoryCharts: React.FC<InventoryChartsProps> = ({ refreshTrigger = 0 })
           </div>
           <p className="text-sm opacity-90 mb-1">Last Updated</p>
           <p className="text-lg font-semibold">
-            {stats.recent_updates && stats.recent_updates.length > 0
-              ? formatDate(stats.recent_updates[0].created_at)
+            {stats.last_updated
+              ? formatDate(stats.last_updated)
               : 'Never'}
           </p>
         </div>
@@ -346,53 +338,6 @@ const InventoryCharts: React.FC<InventoryChartsProps> = ({ refreshTrigger = 0 })
           </table>
         </div>
       </div>
-
-      {/* Recent Activity */}
-      {stats.recent_updates && stats.recent_updates.length > 0 && (
-        <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
-          </div>
-          <div className="divide-y divide-gray-200 max-h-96 overflow-y-auto">
-            {stats.recent_updates.slice(0, 10).map((update) => (
-              <div key={update.id} className="px-6 py-4 hover:bg-gray-50">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <p className="font-medium text-gray-900">
-                      {update.badge?.name || 'Unknown Badge'}
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {update.adjustment_type === 'scan' && 'Updated from scan'}
-                      {update.adjustment_type === 'manual' && 'Manual adjustment'}
-                      {update.adjustment_type === 'correction' && 'Corrected'}
-                      {update.quantity_change > 0 ? (
-                        <span className="text-green-600 font-semibold ml-2">
-                          +{update.quantity_change}
-                        </span>
-                      ) : (
-                        <span className="text-red-600 font-semibold ml-2">
-                          {update.quantity_change}
-                        </span>
-                      )}
-                    </p>
-                    {update.notes && (
-                      <p className="text-xs text-gray-500 mt-1">{update.notes}</p>
-                    )}
-                  </div>
-                  <div className="text-right ml-4">
-                    <p className="text-sm text-gray-900 font-semibold">
-                      {update.new_quantity}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      {formatDate(update.created_at)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }

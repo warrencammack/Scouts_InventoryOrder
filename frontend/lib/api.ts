@@ -14,15 +14,12 @@ import type {
   ShoppingListItem,
   ExportOptions,
 } from './types'
-
-// Base URL for API calls
-// In production, this should be configured via environment variables
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+import { API_CONFIG } from './config'
 
 // Create axios instance with default config
 const apiClient = axios.create({
-  baseURL: API_BASE_URL,
-  timeout: 30000,
+  baseURL: API_CONFIG.BASE_URL,
+  timeout: API_CONFIG.TIMEOUT,
   headers: {
     'Content-Type': 'application/json',
   },

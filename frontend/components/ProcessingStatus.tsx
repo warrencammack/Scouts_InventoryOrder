@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react'
 import { CheckCircle, XCircle, Loader2, X, AlertTriangle, Clock } from 'lucide-react'
 import type { ProcessingProgress, ScanImage } from '@/lib/types'
+import { getScan } from '@/lib/api'
+import { POLLING_CONFIG, PROCESSING_CONFIG } from '@/lib/config'
 
 interface ProcessingStatusProps {
   scanId: string
@@ -17,7 +19,7 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
   onComplete,
   onError,
   onCancel,
-  pollInterval = 1000, // Poll every second
+  pollInterval = POLLING_CONFIG.SCAN_STATUS_INTERVAL,
 }) => {
   const [progress, setProgress] = useState<ProcessingProgress | null>(null)
   const [currentImage, setCurrentImage] = useState<ScanImage | null>(null)
@@ -34,32 +36,41 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
 
     const fetchProgress = async () => {
       try {
-        // This would call the actual API - for now using placeholder
-        // const response = await getProcessingProgress(scanId)
+        // Call the real API to get scan status
+        const response = await getScan(scanId)
 
-        // Simulated progress for demonstration
-        setProgress((prev) => {
-          const current = prev?.current_image || 0
-          const total = prev?.total_images || 10
+        if (!response.success || !response.data) {
+          throw new Error(response.error || 'Failed to fetch scan status')
+        }
 
-          if (current >= total) {
-            if (isMounted) {
-              setStatus('completed')
-              if (onComplete) onComplete(scanId)
-            }
-            return prev
-          }
+        const scanData = response.data
+        const current = scanData.processed_images || 0
+        const total = scanData.total_images || 0
 
-          return {
-            scan_id: scanId,
-            current_image: current + 1,
-            total_images: total,
-            percentage: Math.round(((current + 1) / total) * 100),
-            current_image_name: `badge_image_${current + 1}.jpg`,
-            estimated_time_remaining: Math.max(0, (total - current - 1) * 3),
-            status: 'processing',
-          }
+        // Update progress state
+        setProgress({
+          scan_id: scanId,
+          current_image: current,
+          total_images: total,
+          percentage: total > 0 ? Math.round((current / total) * 100) : 0,
+          current_image_name: current < total ? `Processing image ${current + 1}...` : 'Complete',
+          estimated_time_remaining: Math.max(0, (total - current) * PROCESSING_CONFIG.ESTIMATED_TIME_PER_IMAGE),
+          status: scanData.status,
         })
+
+        // Check if processing is complete or failed
+        if (scanData.status === 'completed') {
+          if (isMounted) {
+            setStatus('completed')
+            if (onComplete) onComplete(scanId)
+          }
+        } else if (scanData.status === 'failed') {
+          if (isMounted) {
+            setStatus('failed')
+            setError(scanData.error_message || 'Processing failed')
+            if (onError) onError(scanData.error_message || 'Processing failed')
+          }
+        }
       } catch (err: any) {
         if (isMounted) {
           setStatus('failed')

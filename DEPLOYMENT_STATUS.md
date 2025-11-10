@@ -235,9 +235,23 @@ ollama pull llava:7b
 4. Verify inventory tracking
 
 ### Pending Actions (From ACTION_PLAN.md)
+
+**Phase 5: Testing & Refinement**
 - **ACTION-502**: Beta Testing (1-2 weeks)
 - **ACTION-503**: Refinement Based on Testing
-- **ACTION-600+**: Optional enhancements
+
+**Phase 6: Future Enhancements**
+- **ACTION-600**: Multi-User Support
+- **ACTION-601**: Historical Tracking & Analytics
+- **ACTION-602**: Expand to Other Scout Sections
+- **ACTION-603**: Display Image Thumbnails on Results Page (2-4 hours)
+- **ACTION-604**: Add API Request Retry Logic (2-3 hours)
+- **ACTION-605**: Increase Upload Timeout for Large Images (1 hour)
+
+**Phase 7: Code Quality**
+- ✅ **ACTION-700**: Centralize Configuration Values (COMPLETED 2025-11-10)
+
+See [ACTION_PLAN.md](ACTION_PLAN.md) for full details on each action
 
 ---
 

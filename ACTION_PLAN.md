@@ -1091,3 +1091,153 @@ For fastest MVP development, prioritize these actions:
 - Estimated times are for a single developer
 - With parallel execution, total time can be significantly reduced
 - Test early and often (ACTION-103 is critical)
+
+### ACTION-603: Display Image Thumbnails on Results Page
+**Status**: ⬜
+**Parallel**: 🟢
+**Estimated Time**: 2-4 hours
+**Dependencies**: ACTION-500 (Deployment Complete)
+
+**Tasks:**
+1. Update results page to use `images` array from scan response
+2. Create thumbnail display component
+3. Add image preview modal/lightbox
+4. Handle image loading errors gracefully
+5. Add loading skeletons for images
+6. Update AppContext to populate `currentImages` state
+
+**Files to Modify:**
+- `frontend/app/results/[id]/page.tsx` (remove TODO, use scan.images)
+- `frontend/context/AppContext.tsx` (populate currentImages)
+- `frontend/components/ResultsReview.tsx` (display thumbnails)
+
+**Output**: Users can see thumbnails of uploaded images on results page
+
+---
+
+### ACTION-604: Add API Request Retry Logic
+**Status**: ⬜
+**Parallel**: 🟢
+**Estimated Time**: 2-3 hours
+**Dependencies**: ACTION-500 (Deployment Complete)
+
+**Tasks:**
+1. Implement exponential backoff retry logic in API client
+2. Add retry configuration to `frontend/lib/config.ts`
+3. Add retry indicators in UI (e.g., "Retrying...")
+4. Handle max retries exceeded gracefully
+5. Add retry logic for critical operations (upload, process start)
+6. Test with network interruptions
+
+**Files to Modify:**
+- `frontend/lib/api.ts` (add retry wrapper)
+- `frontend/lib/config.ts` (already has RETRY config)
+
+**Configuration Added:**
+- `API_CONFIG.RETRY.MAX_ATTEMPTS = 3`
+- `API_CONFIG.RETRY.DELAY = 1000ms`
+
+**Output**: More resilient API calls with automatic retry on failure
+
+---
+
+### ACTION-605: Increase Upload Timeout for Large Images
+**Status**: ⬜
+**Parallel**: 🟢
+**Estimated Time**: 1 hour
+**Dependencies**: ACTION-500 (Deployment Complete)
+
+**Tasks:**
+1. Create separate axios instance for upload operations
+2. Use `API_CONFIG.UPLOAD_TIMEOUT` (60s) for uploads
+3. Add upload progress indicators
+4. Test with large image files (8-10MB)
+5. Add user feedback if upload is taking longer than expected
+
+**Files to Modify:**
+- `frontend/lib/api.ts` (create uploadClient instance)
+
+**Configuration Added:**
+- `API_CONFIG.UPLOAD_TIMEOUT = 60000ms` (already in config)
+
+**Output**: Support for larger image uploads without timeout errors
+
+---
+
+## Phase 7: Code Quality & Refactoring
+
+### ACTION-700: Centralize Configuration Values
+**Status**: ✅
+**Parallel**: 🟢
+**Estimated Time**: 1-2 hours
+**Dependencies**: None
+**Completed**: 2025-11-10
+
+**Tasks:**
+1. ✅ Create `frontend/lib/config.ts` with all configuration values
+2. ✅ Move API_BASE_URL to config
+3. ✅ Move timeout values to config
+4. ✅ Move polling intervals to config
+5. ✅ Add processing configuration (ETA, confidence threshold)
+6. ✅ Add inventory configuration (stock levels, thresholds)
+7. ✅ Add feature flags
+8. ✅ Update all components to use config values
+
+**Files Modified:**
+- ✅ Created `frontend/lib/config.ts`
+- ✅ Updated `frontend/lib/api.ts`
+- ✅ Updated `frontend/components/ProcessingStatus.tsx`
+
+**Configuration Centralized:**
+- API URLs and timeouts
+- Polling intervals
+- Processing time estimates
+- Upload limits
+- Stock level thresholds
+- Feature flags
+
+**Output**: All configuration values centralized for easy maintenance
+
+---
+
+### ACTION-701: Security Review & Testing Framework
+**Status**: ✅
+**Parallel**: 🟢
+**Estimated Time**: 3-4 hours
+**Dependencies**: ACTION-500 (Deployment Complete)
+**Completed**: 2025-11-10
+
+**Tasks:**
+1. ✅ Create security review agent configuration
+2. ✅ Document OWASP Top 10 security checks
+3. ✅ Create automated security audit script
+4. ✅ Define security testing procedures
+5. ✅ Document known security limitations
+6. ✅ Create security incident response plan
+7. ✅ Define security testing schedule
+8. ✅ Run initial security audit
+
+**Files Created:**
+- ✅ `docs/SECURITY_REVIEW.md` - Comprehensive security framework
+- ✅ `scripts/security-audit.sh` - Automated security scanner
+
+**Security Checks Implemented:**
+- Hardcoded secrets detection
+- File permission validation
+- Dependency vulnerability scanning
+- Dangerous code pattern detection
+- SQL injection prevention verification
+- File upload security validation
+- CORS configuration review
+- XSS prevention verification
+
+**Initial Audit Results:**
+- ✅ All automated checks passed
+- ⚠️ pip-audit recommended for Python dependencies
+- ✅ No known vulnerabilities in Node dependencies
+- ✅ No dangerous code patterns found
+- ✅ File upload security verified
+- ✅ CORS properly configured
+
+**Output**: Complete security testing framework with automated scanning
+

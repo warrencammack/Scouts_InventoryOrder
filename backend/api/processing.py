@@ -578,3 +578,83 @@ async def get_processing_results(scan_id: int) -> ProcessingCompleteResponse:
 
     finally:
         db.close()
+
+
+@router.get(
+    "/scans/{scan_id}",
+    summary="Get scan details",
+    description="Retrieve full scan details including images",
+)
+def getScan(scan_id: int):
+    """Get scan details with images."""
+    db = SessionLocal()
+    try:
+        scan = db.query(Scan).filter(Scan.id == scan_id).first()
+        if not scan:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Scan {scan_id} not found"
+            )
+
+        images = db.query(ScanImage).filter(ScanImage.scan_id == scan_id).all()
+
+        return {
+            "id": scan.id,
+            "status": scan.status.value,
+            "total_images": scan.total_images,
+            "processed_images": scan.processed_images,
+            "created_at": scan.created_at.isoformat() if scan.created_at else None,
+            "images": [
+                {
+                    "id": img.id,
+                    "image_path": img.image_path,
+                    "status": img.status.value,
+                    "uploaded_at": img.uploaded_at.isoformat() if img.uploaded_at else None,
+                }
+                for img in images
+            ]
+        }
+    finally:
+        db.close()
+
+
+@router.get(
+    "/scans/{scan_id}/detections",
+    summary="Get scan detections",
+    description="Retrieve all badge detections for a scan",
+)
+def getScanDetections(scan_id: int):
+    """Get all detections for a scan."""
+    db = SessionLocal()
+    try:
+        # Get all images for this scan
+        images = db.query(ScanImage).filter(ScanImage.scan_id == scan_id).all()
+
+        if not images:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"No images found for scan {scan_id}"
+            )
+
+        # Get all detections for these images
+        all_detections = []
+        for image in images:
+            detections = db.query(BadgeDetection).filter(
+                BadgeDetection.scan_image_id == image.id
+            ).all()
+
+            for det in detections:
+                badge = db.query(Badge).filter(Badge.id == det.badge_id).first()
+                all_detections.append({
+                    "id": det.id,
+                    "badge_id": badge.id if badge else None,
+                    "badge_name": badge.name if badge else det.detected_name,
+                    "detected_name": det.detected_name,
+                    "quantity": det.quantity,
+                    "confidence": det.confidence,
+                    "image_id": image.id,
+                })
+
+        return all_detections
+    finally:
+        db.close()

@@ -259,6 +259,72 @@ async def get_inventory(
 
 
 @router.get(
+    "/inventory/stats",
+    response_model=InventoryStatsResponse,
+    summary="Get inventory statistics",
+    description="Retrieve overall inventory statistics including totals and breakdown by category.",
+)
+async def get_inventory_stats() -> InventoryStatsResponse:
+    """
+    Get inventory statistics.
+
+    Returns overall inventory metrics including total badge types,
+    total quantity, low stock count, and breakdown by category.
+
+    Returns:
+        InventoryStatsResponse with statistics
+    """
+    db = SessionLocal()
+
+    try:
+        # Get all inventory items with badges
+        items = db.query(Inventory, Badge).join(Badge, Inventory.badge_id == Badge.id).all()
+
+        # Calculate statistics
+        total_badge_types = len(items)
+        total_quantity = sum(inv.quantity for inv, _ in items)
+        low_stock_count = sum(1 for inv, _ in items if inv.is_low_stock)
+        out_of_stock_count = sum(1 for inv, _ in items if inv.quantity == 0)
+
+        # Get most recent update timestamp
+        last_updated = None
+        if items:
+            last_updated = max(inv.last_updated for inv, _ in items)
+
+        # Calculate by-category breakdown
+        by_category = {}
+        for inv, badge in items:
+            if badge.category not in by_category:
+                by_category[badge.category] = {
+                    "badge_types": 0,
+                    "total_quantity": 0,
+                    "low_stock_count": 0,
+                    "out_of_stock_count": 0,
+                }
+
+            by_category[badge.category]["badge_types"] += 1
+            by_category[badge.category]["total_quantity"] += inv.quantity
+
+            if inv.is_low_stock:
+                by_category[badge.category]["low_stock_count"] += 1
+
+            if inv.quantity == 0:
+                by_category[badge.category]["out_of_stock_count"] += 1
+
+        return InventoryStatsResponse(
+            total_badge_types=total_badge_types,
+            total_quantity=total_quantity,
+            low_stock_count=low_stock_count,
+            out_of_stock_count=out_of_stock_count,
+            by_category=by_category,
+            last_updated=last_updated,
+        )
+
+    finally:
+        db.close()
+
+
+@router.get(
     "/inventory/{badge_id}",
     response_model=BadgeInventoryDetail,
     summary="Get specific badge inventory",
@@ -537,72 +603,6 @@ async def manual_inventory_adjustment(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to apply adjustment: {str(e)}",
         )
-    finally:
-        db.close()
-
-
-@router.get(
-    "/inventory/stats",
-    response_model=InventoryStatsResponse,
-    summary="Get inventory statistics",
-    description="Retrieve overall inventory statistics including totals and breakdown by category.",
-)
-async def get_inventory_stats() -> InventoryStatsResponse:
-    """
-    Get inventory statistics.
-
-    Returns overall inventory metrics including total badge types,
-    total quantity, low stock count, and breakdown by category.
-
-    Returns:
-        InventoryStatsResponse with statistics
-    """
-    db = SessionLocal()
-
-    try:
-        # Get all inventory items with badges
-        items = db.query(Inventory, Badge).join(Badge, Inventory.badge_id == Badge.id).all()
-
-        # Calculate statistics
-        total_badge_types = len(items)
-        total_quantity = sum(inv.quantity for inv, _ in items)
-        low_stock_count = sum(1 for inv, _ in items if inv.is_low_stock)
-        out_of_stock_count = sum(1 for inv, _ in items if inv.quantity == 0)
-
-        # Get most recent update timestamp
-        last_updated = None
-        if items:
-            last_updated = max(inv.last_updated for inv, _ in items)
-
-        # Calculate by-category breakdown
-        by_category = {}
-        for inv, badge in items:
-            if badge.category not in by_category:
-                by_category[badge.category] = {
-                    "badge_types": 0,
-                    "total_quantity": 0,
-                    "low_stock_count": 0,
-                    "out_of_stock_count": 0,
-                }
-
-            by_category[badge.category]["badge_types"] += 1
-            by_category[badge.category]["total_quantity"] += inv.quantity
-
-            if inv.is_low_stock:
-                by_category[badge.category]["low_stock_count"] += 1
-
-            if inv.quantity == 0:
-                by_category[badge.category]["out_of_stock_count"] += 1
-
-        return InventoryStatsResponse(
-            total_badge_types=total_badge_types,
-            total_quantity=total_quantity,
-            low_stock_count=low_stock_count,
-            out_of_stock_count=out_of_stock_count,
-            by_category=by_category,
-            last_updated=last_updated,
-        )
-
     finally:
         db.close()
 
