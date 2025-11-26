@@ -24,6 +24,7 @@ That's it! The script will check dependencies, install what's needed, and start 
 - 📈 **Analytics & Charts** - Visual reports and trends
 - 🛒 **Shopping Lists** - Generate reorder lists with scoutshop.com.au links
 - 📤 **Export** - Export reports to PDF/Excel
+- 🏷️ **Badge Images** - Automatic downloading of official badge images from multiple sources
 
 ## What's Included
 
@@ -37,6 +38,7 @@ This system includes:
 
 - [QUICK_START.md](QUICK_START.md) - Get running in one command
 - [SETUP_GUIDE.md](SETUP_GUIDE.md) - Detailed setup instructions
+- [BADGE_IMAGE_DOWNLOADING.md](docs/BADGE_IMAGE_DOWNLOADING.md) - Badge image downloading guide
 - [Requirements.md](Requirements.md) - Full requirements specification
 - [ACTION_PLAN.md](ACTION_PLAN.md) - Development roadmap
 
@@ -52,5 +54,6 @@ This system includes:
 - `./setup.sh` - Complete automated setup and start
 - `./stop.sh` - Stop all services
 - `./restart.sh` - Restart all services
+- `./scripts/setup-badge-images.sh` - Download badge images from scoutshop.com.au
 
 See [QUICK_START.md](QUICK_START.md) for details.
