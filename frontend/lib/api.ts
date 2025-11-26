@@ -11,6 +11,7 @@ import type {
   ScanImage,
   UploadResponse,
   InventoryAdjustment,
+  ManualAdjustmentResponse,
   ShoppingListItem,
   ExportOptions,
 } from './types'
@@ -214,12 +215,20 @@ export async function getInventory(filters?: {
     if (filters?.low_stock_only) params.append('low_stock_only', 'true')
     if (filters?.search) params.append('search', filters.search)
 
-    const response = await apiClient.get<{ items: Inventory[], total_items: number, low_stock_count: number }>(`/api/inventory?${params.toString()}`)
+    const response = await apiClient.get<{ items: any[], total_items: number, low_stock_count: number }>(`/api/inventory?${params.toString()}`)
 
-    // Backend returns {items: [...], total_items: N, low_stock_count: N}, extract items array
+    // Transform backend data to include computed status field
+    const transformedItems: Inventory[] = (response.data.items || []).map((item: any) => ({
+      ...item,
+      // Map backend field names to frontend expectations
+      low_stock_threshold: item.reorder_threshold || item.low_stock_threshold || 5,
+      // Compute status based on quantity and threshold
+      status: getInventoryStatus(item.quantity, item.reorder_threshold || item.low_stock_threshold || 5)
+    }))
+
     return {
       success: true,
-      data: response.data.items || [],
+      data: transformedItems,
     }
   } catch (error) {
     return handleApiError(error as AxiosError)
@@ -233,11 +242,20 @@ export async function getInventory(filters?: {
  */
 export async function getBadgeInventory(badgeId: string): Promise<ApiResponse<Inventory>> {
   try {
-    const response = await apiClient.get<Inventory>(`/api/inventory/${badgeId}`)
+    const response = await apiClient.get<any>(`/api/inventory/${badgeId}`)
+
+    // Transform backend data to include computed status field
+    const transformedItem: Inventory = {
+      ...response.data,
+      // Map backend field names to frontend expectations
+      low_stock_threshold: response.data.reorder_threshold || response.data.low_stock_threshold || 5,
+      // Compute status based on quantity and threshold
+      status: getInventoryStatus(response.data.quantity, response.data.reorder_threshold || response.data.low_stock_threshold || 5)
+    }
 
     return {
       success: true,
-      data: response.data,
+      data: transformedItem,
     }
   } catch (error) {
     return handleApiError(error as AxiosError)
@@ -282,13 +300,12 @@ export async function adjustInventory(
   badgeId: string,
   adjustment: number,
   notes?: string
-): Promise<ApiResponse<InventoryAdjustment>> {
+): Promise<ApiResponse<ManualAdjustmentResponse>> {
   try {
-    const response = await apiClient.post<InventoryAdjustment>('/api/inventory/adjust', {
+    const response = await apiClient.post<ManualAdjustmentResponse>('/api/inventory/adjust', {
       badge_id: badgeId,
-      quantity_change: adjustment,
-      adjustment_type: 'manual',
-      notes,
+      adjustment: adjustment,
+      reason: notes || 'Manual adjustment from dashboard',
     })
 
     return {
@@ -517,14 +534,33 @@ export function getInventoryStatusColor(inventory: Inventory): string {
 }
 
 /**
+ * Get status for inventory based on quantity and threshold
+ * @param quantity - Current quantity
+ * @param threshold - Reorder threshold
+ * @returns Status string
+ */
+export function getInventoryStatus(quantity: number, threshold: number): 'out_of_stock' | 'low' | 'ok' | 'good' {
+  if (quantity === 0) {
+    return 'out_of_stock'
+  } else if (quantity <= threshold) {
+    return 'low'
+  } else if (quantity < 10) {
+    return 'ok'
+  }
+  return 'good'
+}
+
+/**
  * Get status label for inventory
  * @param inventory - Inventory item
  * @returns Status label
  */
 export function getInventoryStatusLabel(inventory: Inventory): string {
-  if (inventory.quantity <= inventory.low_stock_threshold) {
+  if (inventory.quantity === 0) {
+    return 'Out of Stock'
+  } else if (inventory.quantity <= inventory.low_stock_threshold) {
     return 'Low Stock'
-  } else if (inventory.quantity <= inventory.low_stock_threshold * 2) {
+  } else if (inventory.quantity < 10) {
     return 'Adequate'
   }
   return 'Well Stocked'

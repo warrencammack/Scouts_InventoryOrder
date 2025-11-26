@@ -29,6 +29,7 @@ const COLORS = {
     green: '#006400',
   },
   status: {
+    out_of_stock: '#dc2626',
     low: '#ef4444',
     ok: '#f59e0b',
     good: '#22c55e',
