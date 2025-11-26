@@ -1,0 +1,9 @@
+# Scout Badge Inventory System - Running Services
+# Generated: Wed Nov 26 22:17:09 AEDT 2025
+
+OLLAMA_PID=
+BACKEND_PID=40907
+FRONTEND_PID=40910
+
+# To stop all services, run: ./stop.sh
+# Or manually: kill  40907 40910

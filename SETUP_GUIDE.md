@@ -277,15 +277,16 @@ Ollama is running on http://localhost:11434
 ### Terminal 2: Backend API
 
 ```zsh
-cd backend
+# Run from the project root directory (Scouts_InventoryOrder/Scouts_InventoryOrder)
+# NOT from inside the backend/ directory
 
 # Activate virtual environment if not already active
 # macOS/Linux (zsh/bash):
-source venv/bin/activate
-# Windows: venv\Scripts\activate
+source backend/venv/bin/activate
+# Windows: backend\venv\Scripts\activate
 
-# Start the FastAPI server
-uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+# Start the FastAPI server (from parent directory)
+uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 You should see:

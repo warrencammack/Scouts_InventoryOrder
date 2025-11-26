@@ -511,8 +511,6 @@ if ! curl -s http://localhost:8000/health &> /dev/null; then
     exit 1
 fi
 
-cd ..
-
 echo ""
 
 log_info "Starting frontend development server..."

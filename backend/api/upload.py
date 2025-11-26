@@ -270,8 +270,8 @@ async def upload_images(
             file_size = await save_uploaded_file(file, save_path)
             saved_files.append(save_path)
 
-            # Create relative path for database storage
-            relative_path = f"data/uploads/{unique_filename}"
+            # Create relative path for database storage (relative to BASE_DIR)
+            relative_path = str(save_path.relative_to(UploadConfig.UPLOAD_DIR.parent))
 
             # Create scan image record
             scan_image = ScanImage(
