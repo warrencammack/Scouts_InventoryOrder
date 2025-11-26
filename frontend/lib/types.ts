@@ -30,6 +30,7 @@ export interface Scan {
   status: 'pending' | 'processing' | 'completed' | 'failed'
   total_images: number
   processed_images: number
+  progress_message?: string
   total_badges_detected?: number
   created_at: string
   updated_at?: string
@@ -100,6 +101,7 @@ export interface ProcessingProgress {
   current_image: number
   total_images: number
   percentage: number
+  progress_message?: string
   current_image_name?: string
   estimated_time_remaining?: number
   status: string

@@ -16,16 +16,16 @@ export const API_CONFIG = {
 
   /**
    * Default timeout for API requests (milliseconds)
-   * 60 seconds to handle slower connections and processing
+   * 120 seconds to handle slower connections and AI processing (doubled from 60s)
    * Note: Image processing runs in background, so this doesn't need to be longer
    */
-  TIMEOUT: 60000,
+  TIMEOUT: 120000,
 
   /**
    * Timeout specifically for large file uploads (milliseconds)
-   * 60 seconds for uploading multiple large image files
+   * 120 seconds for uploading multiple large image files (doubled from 60s)
    */
-  UPLOAD_TIMEOUT: 60000,
+  UPLOAD_TIMEOUT: 120000,
 
   /**
    * Retry configuration for failed requests
@@ -46,9 +46,9 @@ export const POLLING_CONFIG = {
 
   /**
    * Maximum polling duration before giving up (milliseconds)
-   * 10 minutes should be sufficient for processing even large batches
+   * 20 minutes should be sufficient for processing even large batches (doubled from 10 minutes)
    */
-  MAX_POLLING_DURATION: 600000,
+  MAX_POLLING_DURATION: 1200000,
 }
 
 // UI Configuration

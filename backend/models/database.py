@@ -141,6 +141,7 @@ class Scan(Base):
     )
     total_images: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     processed_images: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    progress_message: Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     # Relationships
@@ -223,6 +224,7 @@ class BadgeDetection(Base):
     badge_id: Mapped[int] = mapped_column(
         Integer, ForeignKey("badges.id", ondelete="CASCADE"), nullable=False, index=True
     )
+    detected_name: Mapped[Optional[str]] = mapped_column(String(200), nullable=True)
     quantity: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
     confidence: Mapped[float] = mapped_column(Float, nullable=False)
     created_at: Mapped[datetime] = mapped_column(

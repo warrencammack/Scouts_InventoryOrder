@@ -72,6 +72,7 @@ class ProcessingStatusResponse(BaseModel):
     total_images: int = Field(..., description="Total number of images")
     processed_images: int = Field(..., description="Number of images processed")
     progress_percentage: float = Field(..., description="Processing progress (0-100)")
+    progress_message: Optional[str] = Field(None, description="Current progress status message")
     current_image: Optional[str] = Field(None, description="Currently processing image")
     estimated_time_remaining: Optional[float] = Field(None, description="Estimated seconds remaining")
     total_detections: int = Field(..., description="Total badges detected so far")
@@ -165,6 +166,7 @@ async def process_scan_background(scan_id: int):
 
         # Update status to processing
         scan.status = ScanStatus.PROCESSING
+        scan.progress_message = "Initializing AI badge recognition..."
         db.commit()
 
         logger.info(f"Starting background processing for scan {scan_id}")
@@ -191,21 +193,32 @@ async def process_scan_background(scan_id: int):
             try:
                 logger.info(f"Processing image {idx}/{len(images)}: {image.image_path}")
 
+                # Update progress message with current image
+                scan.progress_message = f"Processing image {idx} of {len(images)}: Analyzing with AI..."
+                scan.processed_images = idx - 1  # Update before processing
+                db.commit()
+
                 # Update image status
                 image.status = ScanStatus.PROCESSING
                 db.commit()
 
                 # Detect badges in image
+                scan.progress_message = f"Processing image {idx} of {len(images)}: AI analyzing badges..."
+                db.commit()
+
                 detection_result = recognition_service.detect_badges(image.image_path)
 
                 if not detection_result.success:
                     logger.error(f"Detection failed for {image.image_path}: {detection_result.error}")
+                    scan.progress_message = f"Image {idx} of {len(images)}: Detection failed - {detection_result.error}"
                     image.status = ScanStatus.FAILED
                     failed_images += 1
                     db.commit()
                     continue
 
                 # Process each detection
+                scan.progress_message = f"Processing image {idx} of {len(images)}: Matching detected badges..."
+                db.commit()
                 for detection in detection_result.detections:
                     # Match badge name to database
                     match = matcher_service.match_badge_name(
@@ -224,6 +237,7 @@ async def process_scan_background(scan_id: int):
                             badge_detection = BadgeDetection(
                                 scan_image_id=image.id,
                                 badge_id=badge.id,
+                                detected_name=detection.badge_name,
                                 quantity=detection.count,
                                 confidence=match.confidence_score,
                             )
@@ -249,10 +263,12 @@ async def process_scan_background(scan_id: int):
 
                 # Update scan progress
                 scan.processed_images = idx
+                scan.progress_message = f"Completed image {idx} of {len(images)} ({total_detections} badges detected so far)"
                 db.commit()
 
             except Exception as e:
                 logger.error(f"Error processing image {image.image_path}: {e}", exc_info=True)
+                scan.progress_message = f"Error processing image {idx} of {len(images)}: {str(e)[:100]}"
                 image.status = ScanStatus.FAILED
                 failed_images += 1
                 db.commit()
@@ -357,6 +373,7 @@ async def start_processing(
             total_images=scan.total_images,
             processed_images=0,
             progress_percentage=0.0,
+            progress_message="Starting processing...",
             total_detections=0,
             results=[],
         )
@@ -458,6 +475,7 @@ async def get_processing_status(scan_id: int) -> ProcessingStatusResponse:
             total_images=scan.total_images,
             processed_images=scan.processed_images,
             progress_percentage=scan.progress_percentage,
+            progress_message=scan.progress_message,
             current_image=current_image,
             estimated_time_remaining=estimated_time,
             total_detections=total_detections,

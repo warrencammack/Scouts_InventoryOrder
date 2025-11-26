@@ -184,6 +184,184 @@ class ErrorResponse(BaseModel):
     details: dict = Field(default_factory=dict, description="Additional error details")
 
 
+class BadgeResponse(BaseModel):
+    """Response model for badge information."""
+
+    id: str = Field(..., description="Badge identifier")
+    name: str = Field(..., description="Badge name")
+    category: str = Field(..., description="Badge category")
+    description: Optional[str] = Field(None, description="Badge description")
+    requirements_url: Optional[str] = Field(None, description="URL to badge requirements")
+    estimated_size_mm: Optional[int] = Field(None, description="Estimated badge size in mm")
+    image_path: Optional[str] = Field(None, description="Path to badge image")
+    scoutshop_url: Optional[str] = Field(None, description="ScoutShop URL")
+    created_at: Optional[datetime] = Field(None, description="Created timestamp")
+    updated_at: Optional[datetime] = Field(None, description="Updated timestamp")
+
+
+@router.get(
+    "/badges",
+    response_model=List[BadgeResponse],
+    summary="Get all badges",
+    description="Retrieve all available badge types with optional filtering by category.",
+)
+async def get_badges(
+    category: Optional[str] = Query(None, description="Filter by badge category"),
+) -> List[BadgeResponse]:
+    """
+    Get all badges with optional filtering.
+
+    Args:
+        category: Optional category filter
+
+    Returns:
+        List of BadgeResponse objects
+    """
+    db = SessionLocal()
+
+    try:
+        # Build query
+        query = db.query(Badge)
+
+        # Apply category filter if provided
+        if category:
+            query = query.filter(Badge.category == category)
+
+        # Execute query
+        badges = query.all()
+
+        # Convert to response models
+        return [
+            BadgeResponse(
+                id=badge.id,
+                name=badge.name,
+                category=badge.category,
+                description=badge.description,
+                requirements_url=badge.requirements_url,
+                estimated_size_mm=badge.estimated_size_mm,
+                image_path=badge.image_path,
+                scoutshop_url=badge.scoutshop_url,
+                created_at=badge.created_at,
+                updated_at=badge.updated_at,
+            )
+            for badge in badges
+        ]
+
+    except Exception as e:
+        logger.error(f"Error fetching badges: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to fetch badges: {str(e)}",
+        )
+    finally:
+        db.close()
+
+
+@router.get(
+    "/badges/{badge_id}",
+    response_model=BadgeResponse,
+    summary="Get specific badge",
+    description="Retrieve details for a specific badge by ID.",
+)
+async def get_badge(badge_id: str) -> BadgeResponse:
+    """
+    Get specific badge details.
+
+    Args:
+        badge_id: The badge identifier
+
+    Returns:
+        BadgeResponse object
+    """
+    db = SessionLocal()
+
+    try:
+        badge = db.query(Badge).filter(Badge.id == badge_id).first()
+
+        if not badge:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Badge not found: {badge_id}",
+            )
+
+        return BadgeResponse(
+            id=badge.id,
+            name=badge.name,
+            category=badge.category,
+            description=badge.description,
+            requirements_url=badge.requirements_url,
+            estimated_size_mm=badge.estimated_size_mm,
+            image_path=badge.image_path,
+            scoutshop_url=badge.scoutshop_url,
+            created_at=badge.created_at,
+            updated_at=badge.updated_at,
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error fetching badge {badge_id}: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to fetch badge: {str(e)}",
+        )
+    finally:
+        db.close()
+
+
+@router.get(
+    "/badges/search",
+    response_model=List[BadgeResponse],
+    summary="Search badges",
+    description="Search badges by name.",
+)
+async def search_badges(
+    q: str = Query(..., description="Search query"),
+) -> List[BadgeResponse]:
+    """
+    Search badges by name.
+
+    Args:
+        q: Search query string
+
+    Returns:
+        List of matching BadgeResponse objects
+    """
+    db = SessionLocal()
+
+    try:
+        # Search in badge names (case-insensitive)
+        badges = db.query(Badge).filter(
+            Badge.name.ilike(f"%{q}%")
+        ).all()
+
+        # Convert to response models
+        return [
+            BadgeResponse(
+                id=badge.id,
+                name=badge.name,
+                category=badge.category,
+                description=badge.description,
+                requirements_url=badge.requirements_url,
+                estimated_size_mm=badge.estimated_size_mm,
+                image_path=badge.image_path,
+                scoutshop_url=badge.scoutshop_url,
+                created_at=badge.created_at,
+                updated_at=badge.updated_at,
+            )
+            for badge in badges
+        ]
+
+    except Exception as e:
+        logger.error(f"Error searching badges: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to search badges: {str(e)}",
+        )
+    finally:
+        db.close()
+
+
 @router.get(
     "/inventory",
     response_model=InventoryListResponse,

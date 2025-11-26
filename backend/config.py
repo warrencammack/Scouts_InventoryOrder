@@ -34,7 +34,7 @@ class OllamaConfig:
 
     HOST: str = os.getenv("OLLAMA_HOST", "http://localhost:11434")
     MODEL: str = os.getenv("OLLAMA_MODEL", "llava:7b")
-    TIMEOUT: int = int(os.getenv("OLLAMA_TIMEOUT", "120"))
+    TIMEOUT: int = int(os.getenv("OLLAMA_TIMEOUT", "240"))  # Doubled from 120 to 240 seconds
 
 
 class UploadConfig:

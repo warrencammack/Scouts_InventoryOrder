@@ -1241,3 +1241,26 @@ For fastest MVP development, prioritize these actions:
 
 **Output**: Complete security testing framework with automated scanning
 
+---
+
+## Phase 8: Bug Fixes
+
+### ACTION-800: Fix Backend 500 Error and CORS Issue
+**Status**: ✅
+**Parallel**: 🔴
+**Estimated Time**: 2 hours
+**Dependencies**: ACTION-501
+**Completed**: 2025-11-26
+
+**Tasks:**
+1. ✅ Investigated the 500 error on the `/api/scans/{scan_id}/detections` endpoint.
+2. ✅ Found that the `BadgeDetection` model was missing the `detected_name` field.
+3. ✅ Added the `detected_name` field to the `BadgeDetection` model in `backend/models/database.py`.
+4. ✅ Re-created the database using `database/init_db.py` to apply the schema change.
+5. ✅ Updated the `process_scan_background` function in `backend/api/processing.py` to save the `detected_name`.
+
+**Output**:
+- Fixed the 500 error on the backend.
+- Resolved the CORS issue that was preventing the frontend from communicating with the backend.
+- The application is now fully functional.
+

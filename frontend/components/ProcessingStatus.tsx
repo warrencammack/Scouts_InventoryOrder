@@ -58,6 +58,7 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
           current_image: current,
           total_images: total,
           percentage: total > 0 ? Math.round((current / total) * 100) : 0,
+          progress_message: scanData.progress_message,
           current_image_name: current < total ? `Processing image ${current + 1}...` : 'Complete',
           estimated_time_remaining: Math.max(0, (total - current) * PROCESSING_CONFIG.ESTIMATED_TIME_PER_IMAGE),
           status: scanData.status,
@@ -216,6 +217,21 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
               style={{ width: `${progress.percentage}%` }}
             >
               <div className="absolute inset-0 bg-white opacity-20 animate-pulse" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Debug Information - Progress Message */}
+      {progress && status === 'processing' && progress.progress_message && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+          <div className="flex items-start gap-3">
+            <Loader2 className="w-5 h-5 text-blue-600 animate-spin flex-shrink-0 mt-0.5" />
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-blue-900 mb-1">Current Status:</p>
+              <p className="text-sm text-blue-800">
+                {progress.progress_message}
+              </p>
             </div>
           </div>
         </div>
