@@ -1,0 +1,18 @@
+# Additional requirements for badge image downloading scripts
+# These are in addition to the main backend requirements
+
+# Web scraping and HTML parsing
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# HTTP requests (already in main requirements but ensuring version)
+requests>=2.31.0
+
+# Image processing (optional, for advanced image validation)
+# Pillow>=10.0.0
+
+# PDF processing (for badge chart extraction - optional)
+# PyMuPDF>=1.23.0
+
+# Progress bars for downloads (optional)
+# tqdm>=4.66.0
