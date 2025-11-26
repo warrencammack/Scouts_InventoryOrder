@@ -148,14 +148,29 @@ export async function getProcessingResults(
  */
 export async function getScan(scanId: string): Promise<ApiResponse<Scan>> {
   try {
+    console.log(`[API] GET /api/scans/${scanId} - Starting request`)
+    const startTime = Date.now()
     const response = await apiClient.get<Scan>(`/api/scans/${scanId}`)
+    const duration = Date.now() - startTime
+    console.log(`[API] GET /api/scans/${scanId} - Success (${duration}ms)`, {
+      status: response.status,
+      scanStatus: response.data.status,
+      images: `${response.data.processed_images}/${response.data.total_images}`
+    })
 
     return {
       success: true,
       data: response.data,
     }
   } catch (error) {
-    return handleApiError(error as AxiosError)
+    const axiosError = error as AxiosError
+    console.error(`[API] GET /api/scans/${scanId} - Error:`, {
+      message: axiosError.message,
+      status: axiosError.response?.status,
+      hasResponse: !!axiosError.response,
+      hasRequest: !!axiosError.request
+    })
+    return handleApiError(axiosError)
   }
 }
 

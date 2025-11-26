@@ -21,27 +21,36 @@ export default function ScanPage() {
   }, [scanId])
 
   const loadScan = async () => {
+    console.log(`[ScanPage] Loading scan with ID: ${scanId}`)
     const response = await getScan(scanId)
+    console.log('[ScanPage] Scan response:', { success: response.success, hasData: !!response.data, error: response.error })
+
     if (response.success && response.data) {
+      console.log(`[ScanPage] Scan loaded successfully - Status: ${response.data.status}, Images: ${response.data.processed_images}/${response.data.total_images}`)
       setScan(response.data)
 
       // If already completed, redirect to results
       if (response.data.status === 'completed') {
+        console.log(`[ScanPage] Scan ${scanId} already completed, redirecting to results`)
         router.push(`/results/${scanId}`)
       } else if (response.data.status === 'failed') {
+        console.error(`[ScanPage] Scan ${scanId} failed:`, response.data.error_message)
         setError(response.data.error_message || 'Processing failed')
       }
     } else {
+      console.error(`[ScanPage] Failed to load scan ${scanId}:`, response.error)
       setError(response.error || 'Failed to load scan')
     }
   }
 
   const handleComplete = (completedScanId: string) => {
+    console.log(`[ScanPage] handleComplete called for scan ${completedScanId}`)
     // Navigate to results page
     router.push(`/results/${completedScanId}`)
   }
 
   const handleError = (errorMessage: string) => {
+    console.error(`[ScanPage] handleError called:`, errorMessage)
     setError(errorMessage)
   }
 
@@ -113,7 +122,7 @@ export default function ScanPage() {
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <p className="text-gray-600 mb-1">Scan ID</p>
-              <p className="font-mono text-gray-900">{scan.id.substring(0, 8)}...</p>
+              <p className="font-mono text-gray-900">{scan.id}</p>
             </div>
             <div>
               <p className="text-gray-600 mb-1">Total Images</p>

@@ -36,16 +36,21 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
 
     const fetchProgress = async () => {
       try {
+        console.log(`[ProcessingStatus] Fetching scan status for ID: ${scanId}`)
+
         // Call the real API to get scan status
         const response = await getScan(scanId)
+        console.log('[ProcessingStatus] API response:', { success: response.success, hasData: !!response.data, error: response.error })
 
         if (!response.success || !response.data) {
+          console.error('[ProcessingStatus] Failed to fetch scan:', response.error)
           throw new Error(response.error || 'Failed to fetch scan status')
         }
 
         const scanData = response.data
         const current = scanData.processed_images || 0
         const total = scanData.total_images || 0
+        console.log(`[ProcessingStatus] Scan ${scanId} status: ${scanData.status}, progress: ${current}/${total}`)
 
         // Update progress state
         setProgress({
@@ -60,11 +65,13 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
 
         // Check if processing is complete or failed
         if (scanData.status === 'completed') {
+          console.log(`[ProcessingStatus] Scan ${scanId} completed, calling onComplete callback`)
           if (isMounted) {
             setStatus('completed')
             if (onComplete) onComplete(scanId)
           }
         } else if (scanData.status === 'failed') {
+          console.error(`[ProcessingStatus] Scan ${scanId} failed:`, scanData.error_message)
           if (isMounted) {
             setStatus('failed')
             setError(scanData.error_message || 'Processing failed')
@@ -72,6 +79,7 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
           }
         }
       } catch (err: any) {
+        console.error(`[ProcessingStatus] Error fetching scan ${scanId}:`, err)
         if (isMounted) {
           setStatus('failed')
           setError(err.message || 'Failed to fetch processing status')

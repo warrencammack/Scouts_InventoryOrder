@@ -10,15 +10,16 @@ export const API_CONFIG = {
   /**
    * Base URL for the backend API
    * Can be overridden with NEXT_PUBLIC_API_URL environment variable
+   * Using 127.0.0.1 instead of localhost to avoid IPv6 resolution issues
    */
-  BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
+  BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000',
 
   /**
    * Default timeout for API requests (milliseconds)
-   * 30 seconds should be sufficient for most operations
+   * 60 seconds to handle slower connections and processing
    * Note: Image processing runs in background, so this doesn't need to be longer
    */
-  TIMEOUT: 30000,
+  TIMEOUT: 60000,
 
   /**
    * Timeout specifically for large file uploads (milliseconds)

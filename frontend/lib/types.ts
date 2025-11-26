@@ -26,7 +26,7 @@ export interface Inventory {
 }
 
 export interface Scan {
-  id: string
+  id: number  // API returns integer
   status: 'pending' | 'processing' | 'completed' | 'failed'
   total_images: number
   processed_images: number
@@ -39,8 +39,8 @@ export interface Scan {
 }
 
 export interface ScanImage {
-  id: string
-  scan_id?: string
+  id: number  // API returns integer
+  scan_id?: number  // API returns integer
   file_path?: string
   image_path?: string  // API uses image_path instead of file_path
   file_name?: string
