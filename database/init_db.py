@@ -156,8 +156,8 @@ def main() -> None:
     # Load badge data
     load_badge_data(
         database_url=database_url,
-        badge_data_path=BadgeConfig.BADGE_DATA_PATH,
-        scoutshop_urls_path=BadgeConfig.SCOUTSHOP_URLS_PATH,
+        badge_data_path=BadgeConfig.BADGE_DATA_FILE,
+        scoutshop_urls_path=BadgeConfig.SCOUTSHOP_URLS_FILE,
         default_threshold=BadgeConfig.DEFAULT_REORDER_THRESHOLD,
     )
 
@@ -165,7 +165,7 @@ def main() -> None:
     print("Database initialization complete!")
     print("=" * 60)
     print(f"\nDatabase location: {db_path}")
-    print(f"Total badges loaded: {len(json.load(open(BadgeConfig.BADGE_DATA_PATH)))}")
+    print(f"Total badges loaded: {len(json.load(open(BadgeConfig.BADGE_DATA_FILE)))}")
     print("\nYou can now start the API server:")
     print("  cd backend")
     print("  python main.py")

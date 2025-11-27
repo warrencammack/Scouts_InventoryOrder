@@ -74,9 +74,10 @@ class APIConfig:
 class BadgeConfig:
     """Badge data configuration settings."""
 
-    BADGE_DATA_PATH: Path = BASE_DIR / "data" / "badges_list.json"
+    BADGE_DATA_FILE: Path = BASE_DIR / "data" / "badges_list.json"
+    BADGE_METADATA_FILE: Path = BASE_DIR / "data" / "badge_images_metadata.json"
     BADGE_IMAGES_DIR: Path = BASE_DIR / "data" / "badges"
-    SCOUTSHOP_URLS_PATH: Path = BASE_DIR / "data" / "scoutshop_urls.json"
+    SCOUTSHOP_URLS_FILE: Path = BASE_DIR / "data" / "scoutshop_urls.json"
     DEFAULT_REORDER_THRESHOLD: int = int(
         os.getenv("DEFAULT_REORDER_THRESHOLD", "5")
     )

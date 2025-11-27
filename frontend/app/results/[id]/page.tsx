@@ -46,9 +46,8 @@ export default function ResultsPage() {
 
       setDetections(detectionsResponse.data)
 
-      // TODO: Load scan images from API
-      // For now, using mock data
-      setImages([])
+      // Load scan images from the scan data
+      setImages(scanResponse.data.images || [])
     } catch (err: any) {
       setError(err.message || 'Failed to load results')
     } finally {

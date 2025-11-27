@@ -345,7 +345,16 @@ if [ -f database/inventory.db ]; then
         fi
         log_success "Database recreated"
     else
-        log_info "Using existing database (use --reset-db to recreate)"
+        log_info "Ensuring badge data is up-to-date..."
+        if ! python3 database/init_db.py 2>&1 | tee /tmp/db_init.log; then
+            log_error "Failed to update badge data"
+            echo ""
+            echo "Error details:"
+            cat /tmp/db_init.log
+            echo ""
+            exit 1
+        fi
+        log_success "Badge data is up-to-date"
     fi
 else
     log_info "Creating database..."

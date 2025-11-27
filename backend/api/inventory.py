@@ -39,17 +39,25 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 # Pydantic request/response models
-class BadgeInventoryItem(BaseModel):
-    """Inventory information for a single badge."""
+class BadgeInfo(BaseModel):
+    """Minimal badge information for inventory list."""
 
     badge_id: str = Field(..., description="Badge identifier")
     name: str = Field(..., description="Badge name")
     category: str = Field(..., description="Badge category")
-    quantity: int = Field(..., description="Current quantity in stock")
-    reorder_threshold: int = Field(..., description="Reorder threshold")
-    is_low_stock: bool = Field(..., description="Whether stock is below threshold")
     image_path: Optional[str] = Field(None, description="Path to badge image")
     scoutshop_url: Optional[str] = Field(None, description="ScoutShop URL")
+
+
+class BadgeInventoryItem(BaseModel):
+    """Inventory information for a single badge."""
+
+    id: int = Field(..., description="Inventory item ID")
+    badge_id: str = Field(..., description="Badge identifier")
+    badge: BadgeInfo = Field(..., description="Badge details")
+    quantity: int = Field(..., description="Current quantity in stock")
+    reorder_threshold: int = Field(..., description="Reorder threshold")
+    status: str = Field(..., description="Stock status (low, ok, good)")
     last_updated: datetime = Field(..., description="Last inventory update timestamp")
     notes: Optional[str] = Field(None, description="Inventory notes")
 
@@ -233,7 +241,7 @@ async def get_badges(
         # Convert to response models
         return [
             BadgeResponse(
-                id=badge.id,
+                id=badge.badge_id,
                 name=badge.name,
                 category=badge.category,
                 description=badge.description,
@@ -276,7 +284,7 @@ async def get_badge(badge_id: str) -> BadgeResponse:
     db = SessionLocal()
 
     try:
-        badge = db.query(Badge).filter(Badge.id == badge_id).first()
+        badge = db.query(Badge).filter(Badge.badge_id == badge_id).first()
 
         if not badge:
             raise HTTPException(
@@ -285,7 +293,7 @@ async def get_badge(badge_id: str) -> BadgeResponse:
             )
 
         return BadgeResponse(
-            id=badge.id,
+            id=badge.badge_id,
             name=badge.name,
             category=badge.category,
             description=badge.description,
@@ -338,7 +346,7 @@ async def search_badges(
         # Convert to response models
         return [
             BadgeResponse(
-                id=badge.id,
+                id=badge.badge_id,
                 name=badge.name,
                 category=badge.category,
                 description=badge.description,
@@ -360,6 +368,17 @@ async def search_badges(
         )
     finally:
         db.close()
+
+
+def get_inventory_status(quantity: int, threshold: int) -> str:
+    """Determine inventory status based on quantity and threshold."""
+    if quantity <= 0:
+        return "out_of_stock"
+    if quantity <= threshold:
+        return "low"
+    if quantity <= threshold * 2:
+        return "ok"
+    return "good"
 
 
 @router.get(
@@ -387,7 +406,7 @@ async def get_inventory(
     db = SessionLocal()
 
     try:
-        # Build query
+        # Build query, joining Inventory with Badge
         query = db.query(Inventory, Badge).join(Badge, Inventory.badge_id == Badge.id)
 
         # Apply filters
@@ -409,22 +428,30 @@ async def get_inventory(
         low_stock_count = 0
 
         for inventory, badge in results:
-            is_low = inventory.is_low_stock
-            if is_low:
+            status = get_inventory_status(inventory.quantity, inventory.reorder_threshold)
+            if status == "low" or status == "out_of_stock":
                 low_stock_count += 1
 
-            items.append(BadgeInventoryItem(
+            badge_info = BadgeInfo(
                 badge_id=badge.badge_id,
                 name=badge.name,
                 category=badge.category,
-                quantity=inventory.quantity,
-                reorder_threshold=inventory.reorder_threshold,
-                is_low_stock=is_low,
                 image_path=badge.image_path,
                 scoutshop_url=badge.scoutshop_url,
-                last_updated=inventory.last_updated,
-                notes=inventory.notes,
-            ))
+            )
+
+            items.append(
+                BadgeInventoryItem(
+                    id=inventory.id,
+                    badge_id=badge.badge_id,
+                    badge=badge_info,
+                    quantity=inventory.quantity,
+                    reorder_threshold=inventory.reorder_threshold,
+                    status=status,
+                    last_updated=inventory.last_updated,
+                    notes=inventory.notes,
+                )
+            )
 
         return InventoryListResponse(
             total_items=len(items),
