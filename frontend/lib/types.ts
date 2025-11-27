@@ -19,7 +19,7 @@ export interface Inventory {
   badge?: Badge
   quantity: number
   low_stock_threshold: number
-  status: 'low' | 'ok' | 'good'
+  status: 'out_of_stock' | 'low' | 'ok' | 'good'
   last_counted?: string
   last_updated?: string
   created_at?: string
@@ -84,6 +84,16 @@ export interface InventoryAdjustment {
   notes?: string
   created_by?: string
   created_at: string
+}
+
+export interface ManualAdjustmentResponse {
+  badge_id: string
+  name: string
+  old_quantity: number
+  new_quantity: number
+  adjustment: number
+  reason: string
+  timestamp: string
 }
 
 export interface ShoppingListItem {

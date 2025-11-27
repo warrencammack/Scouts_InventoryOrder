@@ -103,7 +103,7 @@ const InventoryDashboard: React.FC<InventoryDashboardProps> = ({
           comparison = a.quantity - b.quantity
           break
         case 'status':
-          const statusOrder = { low: 0, ok: 1, good: 2 }
+          const statusOrder = { out_of_stock: 0, low: 1, ok: 2, good: 3 }
           comparison = statusOrder[a.status] - statusOrder[b.status]
           break
         case 'category':
@@ -141,7 +141,14 @@ const InventoryDashboard: React.FC<InventoryDashboardProps> = ({
   }
 
   const getStatusBadge = (item: Inventory) => {
-    if (item.status === 'low') {
+    if (item.status === 'out_of_stock') {
+      return (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 border border-red-300">
+          <AlertTriangle className="w-3 h-3" />
+          Out of Stock
+        </span>
+      )
+    } else if (item.status === 'low') {
       return (
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 border border-red-300">
           <AlertTriangle className="w-3 h-3" />
@@ -257,6 +264,7 @@ const InventoryDashboard: React.FC<InventoryDashboardProps> = ({
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-scout-purple focus:border-transparent appearance-none bg-white min-w-[140px]"
           >
             <option value="all">All Status</option>
+            <option value="out_of_stock">Out of Stock</option>
             <option value="low">Low Stock</option>
             <option value="ok">Adequate</option>
             <option value="good">Well Stocked</option>
